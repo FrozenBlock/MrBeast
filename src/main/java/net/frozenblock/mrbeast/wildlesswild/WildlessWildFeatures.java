@@ -5,7 +5,9 @@ import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
 import net.frozenblock.mrbeast.util.MrBeastSharedConstants;
 import net.minecraft.data.worldgen.placement.AquaticPlacements;
+import net.minecraft.data.worldgen.placement.CavePlacements;
 import net.minecraft.data.worldgen.placement.MiscOverworldPlacements;
+import net.minecraft.data.worldgen.placement.OrePlacements;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
 
 public class WildlessWildFeatures {
@@ -77,6 +79,42 @@ public class WildlessWildFeatures {
 							context.getGenerationSettings().removeFeature(MiscOverworldPlacements.DISK_GRAVEL);
 							context.getGenerationSettings().removeFeature(MiscOverworldPlacements.DISK_SAND);
 							context.getGenerationSettings().removeFeature(MiscOverworldPlacements.FREEZE_TOP_LAYER);
+							context.getGenerationSettings().removeFeature(OrePlacements.ORE_ANDESITE_LOWER);
+							context.getGenerationSettings().removeFeature(OrePlacements.ORE_ANDESITE_UPPER);
+							context.getGenerationSettings().removeFeature(OrePlacements.ORE_CLAY);
+							context.getGenerationSettings().removeFeature(OrePlacements.ORE_DIRT);
+							context.getGenerationSettings().removeFeature(OrePlacements.ORE_GRAVEL);
+							context.getGenerationSettings().removeFeature(OrePlacements.ORE_TUFF);
+							context.getGenerationSettings().removeFeature(OrePlacements.ORE_DIORITE_LOWER);
+							context.getGenerationSettings().removeFeature(OrePlacements.ORE_DIORITE_UPPER);
+							context.getGenerationSettings().removeFeature(OrePlacements.ORE_GRANITE_LOWER);
+							context.getGenerationSettings().removeFeature(OrePlacements.ORE_GRANITE_LOWER);
+							context.getGenerationSettings().removeFeature(CavePlacements.GLOW_LICHEN);
+							context.getGenerationSettings().removeFeature(CavePlacements.CAVE_VINES);
+							context.getGenerationSettings().removeFeature(CavePlacements.CLASSIC_VINES);
+							context.getGenerationSettings().removeFeature(CavePlacements.SCULK_PATCH_ANCIENT_CITY);
+							context.getGenerationSettings().removeFeature(CavePlacements.SCULK_PATCH_DEEP_DARK);
+							context.getGenerationSettings().removeFeature(CavePlacements.SCULK_VEIN);
+							context.getGenerationSettings().removeFeature(CavePlacements.AMETHYST_GEODE);
+							context.getGenerationSettings().removeFeature(CavePlacements.ROOTED_AZALEA_TREE);
+							context.getGenerationSettings().removeFeature(CavePlacements.LUSH_CAVES_CEILING_VEGETATION);
+							context.getGenerationSettings().removeFeature(CavePlacements.LUSH_CAVES_CLAY);
+							context.getGenerationSettings().removeFeature(CavePlacements.LUSH_CAVES_VEGETATION);
+							context.getGenerationSettings().removeFeature(CavePlacements.DRIPSTONE_CLUSTER);
+							context.getGenerationSettings().removeFeature(CavePlacements.LARGE_DRIPSTONE);
+							context.getGenerationSettings().removeFeature(CavePlacements.POINTED_DRIPSTONE);
+							context.getGenerationSettings().removeFeature(MiscOverworldPlacements.FOREST_ROCK);
+							context.getGenerationSettings().removeFeature(VegetationPlacements.MUSHROOM_ISLAND_VEGETATION);
+							context.getGenerationSettings().removeFeature(VegetationPlacements.BROWN_MUSHROOM_NETHER);
+							context.getGenerationSettings().removeFeature(VegetationPlacements.BROWN_MUSHROOM_NORMAL);
+							context.getGenerationSettings().removeFeature(VegetationPlacements.BROWN_MUSHROOM_OLD_GROWTH);
+							context.getGenerationSettings().removeFeature(VegetationPlacements.BROWN_MUSHROOM_SWAMP);
+							context.getGenerationSettings().removeFeature(VegetationPlacements.RED_MUSHROOM_NETHER);
+							context.getGenerationSettings().removeFeature(VegetationPlacements.RED_MUSHROOM_NORMAL);
+							context.getGenerationSettings().removeFeature(VegetationPlacements.RED_MUSHROOM_OLD_GROWTH);
+							context.getGenerationSettings().removeFeature(VegetationPlacements.RED_MUSHROOM_SWAMP);
+							context.getGenerationSettings().removeFeature(VegetationPlacements.RED_MUSHROOM_TAIGA);
+							context.getGenerationSettings().removeFeature(VegetationPlacements.TREES_MANGROVE);
 						}
 				);
 	}
