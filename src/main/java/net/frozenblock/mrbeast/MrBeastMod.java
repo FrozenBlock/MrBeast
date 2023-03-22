@@ -5,6 +5,7 @@ import net.frozenblock.mrbeast.mod_compat.MrBeastModIntegrations;
 import net.frozenblock.mrbeast.registry.RegisterEntities;
 import net.frozenblock.mrbeast.registry.RegisterItems;
 import net.frozenblock.mrbeast.util.MrBeastSharedConstants;
+import net.frozenblock.mrbeast.wildlesswild.WildlessWildFeatures;
 
 public class MrBeastMod implements ModInitializer {
 
@@ -15,6 +16,7 @@ public class MrBeastMod implements ModInitializer {
 		MrBeastModIntegrations.init();
 		RegisterEntities.init();
 		RegisterItems.init();
+		WildlessWildFeatures.init();
 
 		MrBeastSharedConstants.stopMeasuring(this);
 	}

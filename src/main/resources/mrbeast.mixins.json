@@ -4,6 +4,11 @@
   "package": "net.frozenblock.mrbeast.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "wildlesswild.DeadCatalystMixin",
+    "wildlesswild.DeadSensorMixin",
+    "wildlesswild.DeadShriekerMixin",
+    "wildlesswild.NoNewBiomesMixin",
+    "wildlesswild.StupidWardenMixin"
   ],
   "client": [
   ],
