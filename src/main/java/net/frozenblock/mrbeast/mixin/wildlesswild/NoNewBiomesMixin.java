@@ -19,7 +19,7 @@ public class NoNewBiomesMixin {
 	private void MrBeast$HatesTheWildUpdatesBiomes(Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> consumer, Climate.Parameter temperature, Climate.Parameter humidity, Climate.Parameter continentalness, Climate.Parameter erosion, Climate.Parameter depth, float weirdness, ResourceKey<Biome> key, CallbackInfo info) {
 		if (
 				key.equals(Biomes.MANGROVE_SWAMP) || key.equals(Biomes.DEEP_DARK)
-				|| key.equals(Biomes.SNOWY_BEACH) || key.equals(Biomes.SNOWY_SLOPES) || key.equals(Biomes.GROVE) || key.equals(Biomes.STONY_PEAKS) || key.equals(Biomes.STONY_SHORE) || key.equals(Biomes.BEACH)
+				|| key.equals(Biomes.SNOWY_BEACH) || key.equals(Biomes.SNOWY_SLOPES) || key.equals(Biomes.GROVE) || key.equals(Biomes.STONY_PEAKS) || key.equals(Biomes.STONY_SHORE) || key.equals(Biomes.BEACH) || key.equals(Biomes.JAGGED_PEAKS)
 		) {
 			info.cancel();
 		}
