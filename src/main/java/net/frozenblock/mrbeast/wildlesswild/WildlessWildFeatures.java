@@ -4,6 +4,8 @@ import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
 import net.frozenblock.mrbeast.util.MrBeastSharedConstants;
+import net.minecraft.data.worldgen.placement.AquaticPlacements;
+import net.minecraft.data.worldgen.placement.MiscOverworldPlacements;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
 
 public class WildlessWildFeatures {
@@ -53,6 +55,28 @@ public class WildlessWildFeatures {
 							context.getGenerationSettings().removeFeature(VegetationPlacements.PATCH_DEAD_BUSH);
 							context.getGenerationSettings().removeFeature(VegetationPlacements.PATCH_DEAD_BUSH_2);
 							context.getGenerationSettings().removeFeature(VegetationPlacements.PATCH_DEAD_BUSH_BADLANDS);
+							context.getGenerationSettings().removeFeature(AquaticPlacements.SEA_PICKLE);
+							context.getGenerationSettings().removeFeature(AquaticPlacements.SEAGRASS_COLD);
+							context.getGenerationSettings().removeFeature(AquaticPlacements.SEAGRASS_DEEP);
+							context.getGenerationSettings().removeFeature(AquaticPlacements.SEAGRASS_DEEP_COLD);
+							context.getGenerationSettings().removeFeature(AquaticPlacements.SEAGRASS_DEEP_WARM);
+							context.getGenerationSettings().removeFeature(AquaticPlacements.SEAGRASS_NORMAL);
+							context.getGenerationSettings().removeFeature(AquaticPlacements.SEAGRASS_RIVER);
+							context.getGenerationSettings().removeFeature(AquaticPlacements.SEAGRASS_SIMPLE);
+							context.getGenerationSettings().removeFeature(AquaticPlacements.SEAGRASS_SIMPLE);
+							context.getGenerationSettings().removeFeature(AquaticPlacements.SEAGRASS_SWAMP);
+							context.getGenerationSettings().removeFeature(AquaticPlacements.SEAGRASS_WARM);
+							context.getGenerationSettings().removeFeature(AquaticPlacements.WARM_OCEAN_VEGETATION);
+							context.getGenerationSettings().removeFeature(MiscOverworldPlacements.ICE_PATCH);
+							context.getGenerationSettings().removeFeature(MiscOverworldPlacements.ICE_SPIKE);
+							context.getGenerationSettings().removeFeature(MiscOverworldPlacements.ICEBERG_BLUE);
+							context.getGenerationSettings().removeFeature(MiscOverworldPlacements.ICEBERG_PACKED);
+							context.getGenerationSettings().removeFeature(MiscOverworldPlacements.BLUE_ICE);
+							context.getGenerationSettings().removeFeature(MiscOverworldPlacements.DISK_CLAY);
+							context.getGenerationSettings().removeFeature(MiscOverworldPlacements.DISK_GRASS);
+							context.getGenerationSettings().removeFeature(MiscOverworldPlacements.DISK_GRAVEL);
+							context.getGenerationSettings().removeFeature(MiscOverworldPlacements.DISK_SAND);
+							context.getGenerationSettings().removeFeature(MiscOverworldPlacements.FREEZE_TOP_LAYER);
 						}
 				);
 	}
