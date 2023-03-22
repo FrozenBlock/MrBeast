@@ -1,4 +1,4 @@
-package net.frozenblock.template.util;
+package net.frozenblock.mrbeast.util;
 
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
@@ -11,8 +11,14 @@ import org.slf4j.LoggerFactory;
 import java.util.HashMap;
 import java.util.Map;
 
-public class TemplateSharedConstants {
-	public static final String MOD_ID = "frozenblock_template_mod";
+public final class MrBeastSharedConstants {
+	private MrBeastSharedConstants() {
+		throw new UnsupportedOperationException("MrBeastSharedConstants contains only static declarations.");
+	}
+
+	public static final String MOD_ID = "mrbeast";
+	public static final String REGISTRY_ID = "mr";
+
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 	public static boolean DEV_LOGGING = false;
 	/**
@@ -81,7 +87,7 @@ public class TemplateSharedConstants {
 	}
 
 	public static ResourceLocation id(String path) {
-		return new ResourceLocation(MOD_ID, path);
+		return new ResourceLocation(REGISTRY_ID, path);
 	}
 
 	public static ResourceLocation vanillaId(String path) {

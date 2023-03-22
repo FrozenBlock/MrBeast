@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "id": "frozenblock_template_mod",
+  "id": "mrbeast",
   "version": "${version}",
 
-  "name": "FrozenBlock Template Mod",
-  "description": "Template description",
+  "name": "MrBeast",
+  "description": "MR BEASSSSSSSSSSSSTTTTTTTTTTTTT!!!!!!!!!!!!!!!!",
   "authors": [
     "FrozenBlock"
   ],
@@ -15,24 +15,24 @@
   },
 
   "license": "LGPL-3.0",
-  "icon": "assets/frozenblock_template_mod/icon.png",
+  "icon": "assets/mr/beast_icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.frozenblock.template.TemplateMod"
+      "net.frozenblock.mrbeast.MrBeastMod"
     ],
     "client": [
-      "net.frozenblock.template.TemplateModClient"
+      "net.frozenblock.mrbeast.MrBeastModClient"
     ],
     "fabric-datagen": [
-      "net.frozenblock.template.datagen.TemplateModDataGenerator"
+      "net.frozenblock.mrbeast.datagen.MrBeastDataGenerator"
     ]
   },
   "mixins": [
-    "frozenblock_template_mod.mixins.json"
+    "mrbeast.mixins.json"
   ],
-  "accessWidener": "frozenblock_template_mod.accesswidener",
+  "accessWidener": "mrbeast.accesswidener",
 
   "depends": {
     "frozenlib": ">=1.1.11-",

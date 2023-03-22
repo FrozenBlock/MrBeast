@@ -25,7 +25,7 @@ pluginManagement {
 	}
 }
 
-rootProject.name = "Template Mod"
+rootProject.name = "MrBeast"
 
 localRepository("FrozenLib", "maven.modrinth:frozenlib", true)
 
