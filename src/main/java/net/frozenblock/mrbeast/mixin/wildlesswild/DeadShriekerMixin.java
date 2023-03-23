@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(SculkShriekerBlockEntity.class)
 public class DeadShriekerMixin {
-
+/*
 	@Inject(method = "shouldListen", at = @At("HEAD"), cancellable = true)
 	public void MrBeast$HatesSculkShriekers(ServerLevel level, GameEventListener listener, BlockPos pos, GameEvent gameEvent, @Nullable GameEvent.Context context, CallbackInfoReturnable<Boolean> info) {
 		if (context.sourceEntity() instanceof MrBeast) {
@@ -22,5 +22,5 @@ public class DeadShriekerMixin {
 			level.destroyBlock(SculkShriekerBlockEntity.class.cast(this).getBlockPos(), false);
 		}
 	}
-
+*/
 }

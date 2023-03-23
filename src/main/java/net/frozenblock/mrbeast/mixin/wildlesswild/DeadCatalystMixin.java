@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(SculkCatalystBlockEntity.class)
 public class DeadCatalystMixin {
-
+/*
 	@Inject(method = "handleGameEvent", at = @At("HEAD"), cancellable = true)
 	public void MrBeast$HatesSculkCatalysts(ServerLevel world, GameEvent event, GameEvent.Context context, Vec3 pos, CallbackInfoReturnable<Boolean> info) {
 		if (context.sourceEntity() instanceof MrBeast) {
@@ -20,5 +20,5 @@ public class DeadCatalystMixin {
 			info.setReturnValue(false);
 		}
 	}
-
+*/
 }
