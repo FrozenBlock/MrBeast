@@ -18,6 +18,8 @@ import net.minecraft.world.level.block.state.BlockState;
 
 public class MrBeast extends PathfinderMob {
 
+	private static final float SOUND_VOLUME = 3.5F;
+
 	public MrBeast(EntityType<? extends MrBeast> entityType, Level level) {
 		super(entityType, level);
 	}
@@ -30,6 +32,11 @@ public class MrBeast extends PathfinderMob {
 	public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType spawnType, SpawnGroupData spawnData, CompoundTag nbt) {
 		this.playSound(RegisterSounds.MRBEAST_SPAWN, 10.0F, 1.0F);
 		return super.finalizeSpawn(level, difficulty, spawnType, spawnData, nbt);
+	}
+
+	@Override
+	protected float getSoundVolume() {
+		return SOUND_VOLUME;
 	}
 
 	@Override
