@@ -35,6 +35,11 @@ public class MrBeast extends PathfinderMob {
 	}
 
 	@Override
+	public boolean removeWhenFarAway(double distanceToClosestPlayer) {
+		return false;
+	}
+
+	@Override
 	protected float getSoundVolume() {
 		return SOUND_VOLUME;
 	}
