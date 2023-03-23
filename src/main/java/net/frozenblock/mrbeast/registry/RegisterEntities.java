@@ -9,7 +9,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.entity.EntityType;
 
-public class RegisterEntities {
+public final class RegisterEntities {
 
 	public static final EntityType<MrBeast> MRBEAST = register(
 			"beast",

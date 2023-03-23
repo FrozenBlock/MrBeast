@@ -10,7 +10,7 @@ import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SpawnEggItem;
 
-public class RegisterItems {
+public final class RegisterItems {
 
 	public static final Item MRBEAST_SPAWN_EGG = register("beast_spawn_egg", new SpawnEggItem(RegisterEntities.MRBEAST, 0x000000, 0x000000, new FabricItemSettings()), CreativeModeTabs.SPAWN_EGGS);
 

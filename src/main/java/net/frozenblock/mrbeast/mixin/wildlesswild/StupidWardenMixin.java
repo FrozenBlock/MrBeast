@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(Warden.class)
 public class StupidWardenMixin {
 
-	@Inject(method = "onSignalReceive", at = @At("HEAD"), cancellable = true)
+	@Inject(method = "onSignalReceive", at = @At("HEAD"))
 	public void MrBeast$HatesWardens(ServerLevel level, GameEventListener listener, BlockPos sourcePos, GameEvent gameEvent, @Nullable Entity sourceEntity, @Nullable Entity projectileOwner, float distance, CallbackInfo info) {
 		Warden warden = Warden.class.cast(this);
 		level.explode(warden, warden.getX(), warden.getY(), warden.getZ(), 5F, Level.ExplosionInteraction.MOB);
