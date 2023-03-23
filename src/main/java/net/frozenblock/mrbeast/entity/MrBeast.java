@@ -1,19 +1,22 @@
 package net.frozenblock.mrbeast.entity;
 
 import net.frozenblock.mrbeast.registry.RegisterSounds;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.PathfinderMob;
+import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class MrBeast extends PathfinderMob {
-
-	// do not save this to NBT. It should be used each time the entity is loaded.
-	private boolean firstTick = true;
 
 	public MrBeast(EntityType<? extends MrBeast> entityType, Level level) {
 		super(entityType, level);
@@ -24,12 +27,9 @@ public class MrBeast extends PathfinderMob {
 	}
 
 	@Override
-	public void tick() {
-		super.tick();
-		if (this.firstTick) {
-			this.firstTick = false;
-			this.level.playSound(null, this, RegisterSounds.MRBEAST_SPAWN, getSoundSource(), 10.0F, 1.0F);
-		}
+	public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType spawnType, SpawnGroupData spawnData, CompoundTag nbt) {
+		this.playSound(RegisterSounds.MRBEAST_SPAWN, 10.0F, 1.0F);
+		return super.finalizeSpawn(level, difficulty, spawnType, spawnData, nbt);
 	}
 
 	@Override

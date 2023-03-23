@@ -1,5 +1,5 @@
 {
-  "entity.mr.beast.ambient": {
+  "entity.beast.ambient": {
     "sounds": [
       "mr:entity/beast/ambient1",
       "mr:entity/beast/ambient2",
@@ -7,19 +7,19 @@
     ],
     "subtitle": "subtitles.entity.mrbeast.ambient"
   },
-  "entity.mr.beast.hurt": {
+  "entity.beast.hurt": {
     "sounds": [
       "mr:entity/beast/hurt"
     ],
     "subtitle": "subtitles.entity.mrbeast.hurt"
   },
-  "entity.mr.beast.spawn": {
+  "entity.beast.spawn": {
     "sounds": [
       "mr:entity/beast/spawn"
     ],
     "subtitle": "subtitles.entity.mrbeast.spawn"
   },
-  "entity.mr.beast.step": {
+  "entity.beast.step": {
     "sounds": [
       "mr:entity/beast/step"
     ],
