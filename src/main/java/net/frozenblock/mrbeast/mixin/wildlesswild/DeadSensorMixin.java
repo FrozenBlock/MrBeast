@@ -17,10 +17,8 @@ public class DeadSensorMixin {
 /*
 	@Inject(method = "shouldListen", at = @At("HEAD"), cancellable = true)
 	public void MrBeast$HatesSculkSensors(ServerLevel level, GameEventListener listener, BlockPos pos, GameEvent gameEvent, @Nullable GameEvent.Context context, CallbackInfoReturnable<Boolean> info) {
-		if (context.sourceEntity() instanceof MrBeast) {
-			info.setReturnValue(false);
-			level.destroyBlock(SculkSensorBlockEntity.class.cast(this).getBlockPos(), false);
-		}
+		info.setReturnValue(false);
+		level.destroyBlock(SculkSensorBlockEntity.class.cast(this).getBlockPos(), false);
 	}
 */
 }
