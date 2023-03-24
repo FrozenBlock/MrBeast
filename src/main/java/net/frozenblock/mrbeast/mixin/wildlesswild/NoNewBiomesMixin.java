@@ -23,7 +23,6 @@ public class NoNewBiomesMixin {
 				|| key.equals(Biomes.SNOWY_BEACH) || key.equals(Biomes.SNOWY_SLOPES) || key.equals(Biomes.GROVE) // Caves and Cliffs Update
 					|| key.equals(Biomes.STONY_PEAKS) || key.equals(Biomes.STONY_SHORE) || key.equals(Biomes.BEACH) // ^
 					|| key.equals(Biomes.JAGGED_PEAKS) || key.equals(Biomes.FROZEN_PEAKS) // ^
-					|| new LegacyRandomSource(2).nextBoolean()
 		) {
 			info.cancel();
 		}
@@ -33,7 +32,6 @@ public class NoNewBiomesMixin {
 	private void MrBeast$HatesTheDeepDark(Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> consumer, Climate.Parameter temperature, Climate.Parameter humidity, Climate.Parameter continentalness, Climate.Parameter erosion, Climate.Parameter depth, float weirdness, ResourceKey<Biome> key, CallbackInfo ci) {
 		if (
 			key.equals(Biomes.DEEP_DARK) // The Wild Update
-				|| new LegacyRandomSource(2).nextBoolean()
 		) {
 			ci.cancel();
 		}
@@ -43,7 +41,6 @@ public class NoNewBiomesMixin {
 	private void MrBeast$HatesTheCaveBiomes(Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> consumer, Climate.Parameter temperature, Climate.Parameter humidity, Climate.Parameter continentalness, Climate.Parameter erosion, Climate.Parameter depth, float weirdness, ResourceKey<Biome> key, CallbackInfo ci) {
 		if (
 			key.equals(Biomes.DRIPSTONE_CAVES) || key.equals(Biomes.LUSH_CAVES) // Caves and Cliffs Update caves
-			|| new LegacyRandomSource(2).nextBoolean()
 		) {
 			ci.cancel();
 		}
