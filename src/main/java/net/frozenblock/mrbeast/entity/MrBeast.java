@@ -1,6 +1,9 @@
 package net.frozenblock.mrbeast.entity;
 
+import net.frozenblock.lib.FrozenMain;
+import net.frozenblock.lib.spotting_icons.impl.EntitySpottingIconInterface;
 import net.frozenblock.mrbeast.registry.RegisterSounds;
+import net.frozenblock.mrbeast.util.MrBeastSharedConstants;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -22,6 +25,7 @@ public class MrBeast extends PathfinderMob {
 
 	public MrBeast(EntityType<? extends MrBeast> entityType, Level level) {
 		super(entityType, level);
+		((EntitySpottingIconInterface) this).getSpottingIconManager().setIcon(MrBeastSharedConstants.id("beast_icon.png"), 8, 12, FrozenMain.id("default"));
 	}
 
 	public static AttributeSupplier.Builder addAttributes() {
@@ -47,6 +51,11 @@ public class MrBeast extends PathfinderMob {
 	@Override
 	public SoundEvent getAmbientSound() {
 		return RegisterSounds.MRBEAST_AMBIENT;
+	}
+
+	@Override
+	public SoundEvent getDeathSound() {
+		return RegisterSounds.MRBEAST_DEATH;
 	}
 
 	@Override

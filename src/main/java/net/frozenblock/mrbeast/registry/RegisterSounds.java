@@ -10,6 +10,7 @@ import net.minecraft.sounds.SoundEvent;
 public final class RegisterSounds {
 
 	public static final SoundEvent MRBEAST_AMBIENT = register("entity.beast.ambient");
+	public static final SoundEvent MRBEAST_DEATH = register("entity.beast.death");
 	public static final SoundEvent MRBEAST_HURT = register("entity.beast.hurt");
 	public static final SoundEvent MRBEAST_SPAWN = register("entity.beast.spawn");
 	public static final SoundEvent MRBEAST_STEP = register("entity.beast.step");

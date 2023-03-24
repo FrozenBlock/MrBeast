@@ -7,6 +7,16 @@
     ],
     "subtitle": "subtitles.entity.mrbeast.ambient"
   },
+  "entity.beast.death": {
+    "sounds": [
+      "mr:entity/beast/death1",
+      "mr:entity/beast/death2",
+      "mr:entity/beast/death3",
+      "mr:entity/beast/death4",
+      "mr:entity/beast/death5"
+    ],
+    "subtitle": "subtitles.entity.mrbeast.death"
+  },
   "entity.beast.hurt": {
     "sounds": [
       "mr:entity/beast/hurt"
