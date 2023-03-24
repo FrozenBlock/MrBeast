@@ -13,7 +13,10 @@
       "mr:entity/beast/death2",
       "mr:entity/beast/death3",
       "mr:entity/beast/death4",
-      "mr:entity/beast/death5"
+      "mr:entity/beast/death5",
+      "mr:entity/beast/death6",
+      "mr:entity/beast/death7",
+      "mr:entity/beast/death8"
     ],
     "subtitle": "subtitles.entity.mrbeast.death"
   },
@@ -37,7 +40,7 @@
       "mr:entity/beast/step4",
       "mr:entity/beast/step5",
       "mr:entity/beast/step6",
-      "mr:entity/beast/step7"
+      "mr:entity/beast/step7 "
     ],
     "subtitle": "subtitles.entity.mrbeast.step"
   }
