@@ -12,7 +12,7 @@ import net.minecraft.world.item.SpawnEggItem;
 
 public final class RegisterItems {
 
-	public static final Item MRBEAST_SPAWN_EGG = register("beast_spawn_egg", new SpawnEggItem(RegisterEntities.MRBEAST, 0x000000, 0x000000, new FabricItemSettings()), CreativeModeTabs.SPAWN_EGGS);
+	public static final Item MRBEAST_SPAWN_EGG = register("beast_spawn_egg", new SpawnEggItem(RegisterEntities.MRBEAST, 0xB07C34, 0x5894AC, new FabricItemSettings()), CreativeModeTabs.SPAWN_EGGS);
 
 	public static void init() {
 		// NO-OP
