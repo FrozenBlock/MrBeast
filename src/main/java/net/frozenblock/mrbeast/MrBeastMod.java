@@ -40,7 +40,7 @@ public class MrBeastMod extends FrozenMobCategoryEntrypoint implements ModInitia
 				.add(ModificationPhase.ADDITIONS, BiomeSelectors.all(), context -> {
 					context.getSpawnSettings().addSpawn(
 						FrozenMobCategories.getCategory(MrBeastSharedConstants.REGISTRY_ID, "beast"),
-						new MobSpawnSettings.SpawnerData(RegisterEntities.MRBEAST, 2, 1, 1)
+						new MobSpawnSettings.SpawnerData(RegisterEntities.MRBEAST, 1, 1, 1)
 					);
 				});
 
