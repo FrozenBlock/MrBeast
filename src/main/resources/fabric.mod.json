@@ -27,6 +27,9 @@
     ],
     "fabric-datagen": [
       "net.frozenblock.mrbeast.datagen.MrBeastDataGenerator"
+    ],
+    "frozenlib:mob_categories": [
+      "net.frozenblock.mrbeast.MrBeastMod"
     ]
   },
   "mixins": [
