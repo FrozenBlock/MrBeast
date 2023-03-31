@@ -6,7 +6,6 @@
   "mixins": [
     "DetectedVersionMixin",
     "SharedConstantsMixin",
-    "VersionMixin",
     "wildlesswild.DeadCatalystMixin",
     "wildlesswild.DeadSensorMixin",
     "wildlesswild.DeadShriekerMixin",
