@@ -1,10 +1,10 @@
 package net.frozenblock.mrbeast.mod_compat;
 
+import java.util.function.Supplier;
 import net.frozenblock.lib.integration.api.ModIntegration;
 import net.frozenblock.lib.integration.api.ModIntegrationSupplier;
 import net.frozenblock.lib.integration.api.ModIntegrations;
 import net.frozenblock.mrbeast.util.MrBeastSharedConstants;
-import java.util.function.Supplier;
 
 public final class MrBeastModIntegrations {
 

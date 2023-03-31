@@ -1,6 +1,5 @@
 package net.frozenblock.mrbeast.mixin.wildlesswild;
 
-import net.frozenblock.mrbeast.entity.MrBeast;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.block.entity.SculkShriekerBlockEntity;

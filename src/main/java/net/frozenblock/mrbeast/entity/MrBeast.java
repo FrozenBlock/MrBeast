@@ -4,7 +4,6 @@ import net.frozenblock.lib.FrozenMain;
 import net.frozenblock.lib.spotting_icons.impl.EntitySpottingIconInterface;
 import net.frozenblock.mrbeast.registry.RegisterSounds;
 import net.frozenblock.mrbeast.util.MrBeastSharedConstants;
-import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvent;

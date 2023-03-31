@@ -10,7 +10,6 @@ import net.frozenblock.mrbeast.entity.render.renderer.MrBeastRenderer;
 import net.frozenblock.mrbeast.registry.RegisterEntities;
 import net.frozenblock.mrbeast.util.MrBeastSharedConstants;
 import net.minecraft.client.model.geom.ModelLayerLocation;
-import net.minecraft.client.model.geom.builders.CubeDeformation;
 
 @Environment(EnvType.CLIENT)
 public class MrBeastModClient implements ClientModInitializer {

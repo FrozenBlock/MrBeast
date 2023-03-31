@@ -1,5 +1,6 @@
 package net.frozenblock.mrbeast;
 
+import java.util.ArrayList;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
@@ -14,9 +15,7 @@ import net.frozenblock.mrbeast.registry.RegisterItems;
 import net.frozenblock.mrbeast.registry.RegisterSounds;
 import net.frozenblock.mrbeast.util.MrBeastSharedConstants;
 import net.frozenblock.mrbeast.wildlesswild.WildlessWildFeatures;
-import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.biome.MobSpawnSettings;
-import java.util.ArrayList;
 
 public class MrBeastMod extends FrozenMobCategoryEntrypoint implements ModInitializer {
 
