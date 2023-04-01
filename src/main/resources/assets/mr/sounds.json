@@ -43,5 +43,10 @@
       "mr:entity/beast/step7"
     ],
     "subtitle": "subtitles.entity.mrbeast.step"
+  },
+  "music.in_your_room": {
+    "sounds": [
+      "mr:music/in_your_room_cover"
+    ]
   }
 }

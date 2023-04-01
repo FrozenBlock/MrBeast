@@ -18,6 +18,7 @@ import net.frozenblock.mrbeast.registry.RegisterSounds;
 import net.frozenblock.mrbeast.util.MrBeastSharedConstants;
 import net.frozenblock.mrbeast.wildlesswild.WildlessWildFeatures;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.sounds.Music;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.storage.loot.LootPool;
@@ -45,12 +46,17 @@ public class MrBeastMod extends FrozenMobCategoryEntrypoint implements ModInitia
 		WildlessWildFeatures.init();
 
 		BiomeModifications.create(MrBeastSharedConstants.id("beast_spawn"))
-				.add(ModificationPhase.ADDITIONS, BiomeSelectors.all(), context -> {
+				.add(ModificationPhase.ADDITIONS, BiomeSelectors.all(), context ->
 					context.getSpawnSettings().addSpawn(
 						FrozenMobCategories.getCategory(MrBeastSharedConstants.REGISTRY_ID, "beast"),
 						new MobSpawnSettings.SpawnerData(RegisterEntities.MRBEAST, 1, 1, 1)
-					);
-				});
+					)
+				);
+
+		BiomeModifications.create(MrBeastSharedConstants.id("beast_music"))
+				.add(ModificationPhase.POST_PROCESSING, BiomeSelectors.all(), context ->
+					context.getEffects().setMusic(new Music(RegisterSounds.IN_YOUR_ROOM, 200, 400, true))
+				);
 
 		LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, source) -> {
 			if (source.isBuiltin()) {

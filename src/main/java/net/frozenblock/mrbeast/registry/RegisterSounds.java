@@ -15,6 +15,8 @@ public final class RegisterSounds {
 	public static final SoundEvent MRBEAST_SPAWN = register("entity.beast.spawn");
 	public static final SoundEvent MRBEAST_STEP = register("entity.beast.step");
 
+	public static final Holder<SoundEvent> IN_YOUR_ROOM = registerForHolder("music.in_your_room");
+
 	private static Holder.Reference<SoundEvent> registerForHolder(String string) {
 		return registerForHolder(MrBeastSharedConstants.id(string));
 	}
