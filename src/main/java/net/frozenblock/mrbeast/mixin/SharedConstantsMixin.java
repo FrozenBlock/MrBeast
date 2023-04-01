@@ -8,9 +8,4 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(SharedConstants.class)
 public class SharedConstantsMixin {
-
-	@Inject(method = "getProtocolVersion", at = @At("HEAD"), cancellable = true)
-	private static void changeProtocolVersion(CallbackInfoReturnable<Integer> cir) {
-		cir.setReturnValue(1073741901);
-	}
 }

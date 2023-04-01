@@ -26,7 +26,7 @@ import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
-public class MrBeastMod extends FrozenMobCategoryEntrypoint implements ModInitializer {
+public class MrBeastMod implements ModInitializer, FrozenMobCategoryEntrypoint {
 
 	@Override
 	public void onInitialize() {
@@ -83,6 +83,6 @@ public class MrBeastMod extends FrozenMobCategoryEntrypoint implements ModInitia
 
 	@Override
 	public void newCategories(ArrayList<FrozenMobCategory> context) {
-		context.add(createCategory(MrBeastSharedConstants.id("beast"), 100, true, true, 100));
+		context.add(FrozenMobCategoryEntrypoint.createCategory(MrBeastSharedConstants.id("beast"), 100, true, true, 100));
 	}
 }

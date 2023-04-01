@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(SculkSensorBlockEntity.class)
+@Mixin(SculkSensorBlockEntity.VibrationConfig.class)
 public class DeadSensorMixin {
 
 	@Inject(method = "shouldListen", at = @At("HEAD"), cancellable = true)

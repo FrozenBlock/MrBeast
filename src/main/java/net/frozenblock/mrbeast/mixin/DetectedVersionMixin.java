@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.Shadow;
 @Mixin(DetectedVersion.class)
 public class DetectedVersionMixin {
 
-	private static final String NEW_VERSION = "1.19.4.1.2.3.4.5.6.7";
+	private static final String NEW_VERSION = "23w13a_or_b_or_c_or_d_or_e_or_f_or_g";
 
 	@Mutable
 	@Shadow
@@ -25,15 +25,10 @@ public class DetectedVersionMixin {
 	@Mutable
 	@Shadow
 	@Final
-	private int protocolVersion = 1073741901;
-
-	@Mutable
-	@Shadow
-	@Final
 	private boolean stable = false;
 
 	@Mutable
 	@Shadow
 	@Final
-	private DataVersion worldVersion = new DataVersion(3076, "frozenblockapril2023");
+	private DataVersion worldVersion = new DataVersion(3444, "frozenblockapril2023");
 }

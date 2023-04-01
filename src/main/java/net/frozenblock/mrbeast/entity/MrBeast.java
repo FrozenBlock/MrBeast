@@ -40,12 +40,12 @@ public class MrBeast extends PathfinderMob {
 
 	@Override
 	protected void registerGoals() {
-		this.goalSelector.addGoal(0, new FloatGoal(this));
-		this.goalSelector.addGoal(1, new PanicGoal(this, 2.0D));
-		this.goalSelector.addGoal(4, new TemptGoal(this, 1.8D, Ingredient.of(Items.EMERALD), false));
-		this.goalSelector.addGoal(6, new WaterAvoidingRandomStrollGoal(this, 1.0D));
-		this.goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 24.0F));
-		this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
+		this.targetSelector.addGoal(0, new FloatGoal(this));
+		this.targetSelector.addGoal(1, new PanicGoal(this, 2.0D));
+		this.targetSelector.addGoal(4, new TemptGoal(this, 1.8D, Ingredient.of(Items.EMERALD), false));
+		this.targetSelector.addGoal(6, new WaterAvoidingRandomStrollGoal(this, 1.0D));
+		this.targetSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 24.0F));
+		this.targetSelector.addGoal(8, new RandomLookAroundGoal(this));
 	}
 
 	public static AttributeSupplier.Builder addAttributes() {
