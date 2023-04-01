@@ -13,15 +13,17 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(DetectedVersion.class)
 public class DetectedVersionMixin {
 
-	@Mutable
-	@Shadow
-	@Final
-	private String id = "1.19.0.1.2.3.4.5.6.7";
+	private static final String NEW_VERSION = "1.19.4.1.2.3.4.5.6.7";
 
 	@Mutable
 	@Shadow
 	@Final
-	private String name = "1.19.0.1.2.3.4.5.6.7";
+	private String id = NEW_VERSION;
+
+	@Mutable
+	@Shadow
+	@Final
+	private String name = NEW_VERSION;
 
 	@Mutable
 	@Shadow
