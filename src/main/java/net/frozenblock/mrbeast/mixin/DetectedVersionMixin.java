@@ -16,34 +16,25 @@ public class DetectedVersionMixin {
 	@Mutable
 	@Shadow
 	@Final
-	private String id;
+	private String id = "1.19.0.1.2.3.4.5.6.7";
 
 	@Mutable
 	@Shadow
 	@Final
-	private String name;
+	private String name = "1.19.0.1.2.3.4.5.6.7";
 
 	@Mutable
 	@Shadow
 	@Final
-	private int protocolVersion;
+	private int protocolVersion = 1073741901;
 
 	@Mutable
 	@Shadow
 	@Final
-	private boolean stable;
+	private boolean stable = false;
 
 	@Mutable
 	@Shadow
 	@Final
-	private DataVersion worldVersion;
-
-	@Inject(method = "<init>*", at = @At("TAIL"))
-	private void constructor(CallbackInfo ci) {
-		this.id = "1.19.0.1.2.3.4.5.6.7";
-		this.name = "1.19.0.1.2.3.4.5.6.7";
-		this.stable = false;
-		this.worldVersion = new DataVersion(3076, "frozenblockapril2023");
-		this.protocolVersion = 1073741901;
-	}
+	private DataVersion worldVersion = new DataVersion(3076, "frozenblockapril2023");
 }
