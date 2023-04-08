@@ -17,7 +17,6 @@ import net.frozenblock.mrbeast.mod_compat.MrBeastModIntegrations
 import net.frozenblock.mrbeast.registry.RegisterEntities
 import net.frozenblock.mrbeast.registry.RegisterItems
 import net.frozenblock.mrbeast.registry.RegisterSounds
-import net.frozenblock.mrbeast.util.CoolObject
 import net.frozenblock.mrbeast.util.MrBeastSharedConstants
 import net.minecraft.core.registries.BuiltInRegistries
 import net.minecraft.resources.ResourceLocation
@@ -35,7 +34,6 @@ import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator
 
 class MrBeastMod : FrozenMobCategoryEntrypoint(), ModInitializer {
     override fun onInitialize() {
-        CoolObject
         MrBeastSharedConstants.startMeasuring(this)
         check(
             !FabricLoader.getInstance().isModLoaded("wilderwild")

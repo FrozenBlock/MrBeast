@@ -18,7 +18,7 @@ object RegisterEntities {
 	val MRBEAST = register<MrBeast, EntityType<MrBeast>>(
         "beast",
         FabricEntityTypeBuilder.createMob<MrBeast>()
-            .spawnGroup(FrozenMobCategories.getCategory(MrBeastSharedConstants.REGISTRY_ID, "beast"))
+            .spawnGroup(FrozenMobCategories.getCategory(MrBeastSharedConstants.MOD_ID, "mrbeast"))
             .entityFactory { entityType: EntityType<MrBeast>?, level: Level? ->
                 MrBeast(
                     entityType,

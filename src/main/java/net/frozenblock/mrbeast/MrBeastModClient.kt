@@ -15,7 +15,7 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider
 @Environment(EnvType.CLIENT)
 class MrBeastModClient : ClientModInitializer {
     override fun onInitializeClient() {
-        EntityRendererRegistry.register(RegisterEntities.MRBEAST) { ctx: EntityRendererProvider.Context? ->
+        EntityRendererRegistry.register(RegisterEntities.MRBEAST) { ctx: EntityRendererProvider.Context ->
             MrBeastRenderer(
                 ctx,
                 MRBEAST,

@@ -7,7 +7,7 @@ import net.minecraft.client.model.geom.ModelPart
 import net.minecraft.client.model.geom.builders.CubeDeformation
 import net.minecraft.client.model.geom.builders.LayerDefinition
 
-class MrBeastModel<T : MrBeast?>(root: ModelPart?) : HumanoidModel<T>(root) {
+class MrBeastModel<T : MrBeast?>(root: ModelPart?) : HumanoidModel<T>(root!!) {
     companion object {
         fun createBodyLayer(): LayerDefinition {
             return LayerDefinition.create(createMesh(CubeDeformation.NONE, 0.0f), 64, 64)
