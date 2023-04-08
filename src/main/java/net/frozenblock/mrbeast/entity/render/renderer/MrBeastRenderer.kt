@@ -29,7 +29,7 @@ class MrBeastRenderer(
     }
 
     override fun getTextureLocation(entity: MrBeast): ResourceLocation {
-        return id("textures/entity/beast.png")
+        return id("textures/entity/mrbeast.png")
     }
 
     companion object {

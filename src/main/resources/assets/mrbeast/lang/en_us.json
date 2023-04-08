@@ -1,7 +1,7 @@
 {
-  "entity.mr.beast": "MrBeast",
+  "entity.mrbeast.mrbeast": "MrBeast",
 
-  "item.mr.beast_spawn_egg": "MrBeast Spawn Egg",
+  "item.mrbeast.mrbeast_spawn_egg": "MrBeast Spawn Egg",
 
   "subtitles.entity.mrbeast.ambient": "MrBeast exists",
   "subtitles.entity.mrbeast.death": "WTF MRBEAST DIED??? HOW DARE YOU",

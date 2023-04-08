@@ -9,7 +9,6 @@ import net.fabricmc.fabric.api.loot.v2.LootTableEvents
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents.Modify
 import net.fabricmc.fabric.api.loot.v2.LootTableSource
 import net.fabricmc.fabric.api.`object`.builder.v1.trade.TradeOfferHelper
-import net.fabricmc.loader.api.FabricLoader
 import net.frozenblock.lib.mobcategory.api.FrozenMobCategories
 import net.frozenblock.lib.mobcategory.api.entrypoint.FrozenMobCategoryEntrypoint
 import net.frozenblock.lib.mobcategory.impl.FrozenMobCategory
@@ -35,10 +34,7 @@ import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator
 class MrBeastMod : FrozenMobCategoryEntrypoint(), ModInitializer {
     override fun onInitialize() {
         MrBeastSharedConstants.startMeasuring(this)
-        check(
-            !FabricLoader.getInstance().isModLoaded("wilderwild")
-        ) { "YOU MUST UNINSTALL WILDER WILD AT ONCE!!!!!!!!!!!! NOW!" }
-        check(FabricLoader.getInstance().allMods.size <= 75) { "GAME TOO MODDED FOR THE AMAZING FROZENBLOCK MOD. PLEASE CONSIDERR REMOVING SOME MODS." }
+
         MrBeastModIntegrations.init()
         RegisterEntities.init()
         RegisterItems.init()

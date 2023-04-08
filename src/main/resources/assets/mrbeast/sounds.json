@@ -1,0 +1,52 @@
+{
+  "entity.mrbeast.ambient": {
+    "sounds": [
+      "mrbeast:entity/mrbeast/ambient1",
+      "mrbeast:entity/mrbeast/ambient2",
+      "mrbeast:entity/mrbeast/ambient3"
+    ],
+    "subtitle": "subtitles.entity.mrbeast.ambient"
+  },
+  "entity.mrbeast.death": {
+    "sounds": [
+      "mrbeast:entity/mrbeast/death1",
+      "mrbeast:entity/mrbeast/death2",
+      "mrbeast:entity/mrbeast/death3",
+      "mrbeast:entity/mrbeast/death4",
+      "mrbeast:entity/mrbeast/death5",
+      "mrbeast:entity/mrbeast/death6",
+      "mrbeast:entity/mrbeast/death7",
+      "mrbeast:entity/mrbeast/death8"
+    ],
+    "subtitle": "subtitles.entity.mrbeast.death"
+  },
+  "entity.mrbeast.hurt": {
+    "sounds": [
+      "mrbeast:entity/mrbeast/hurt"
+    ],
+    "subtitle": "subtitles.entity.mrbeast.hurt"
+  },
+  "entity.mrbeast.spawn": {
+    "sounds": [
+      "mrbeast:entity/mrbeast/spawn"
+    ],
+    "subtitle": "subtitles.entity.mrbeast.spawn"
+  },
+  "entity.mrbeast.step": {
+    "sounds": [
+      "mrbeast:entity/mrbeast/step1",
+      "mrbeast:entity/mrbeast/step2",
+      "mrbeast:entity/mrbeast/step3",
+      "mrbeast:entity/mrbeast/step4",
+      "mrbeast:entity/mrbeast/step5",
+      "mrbeast:entity/mrbeast/step6",
+      "mrbeast:entity/mrbeast/step7"
+    ],
+    "subtitle": "subtitles.entity.mrbeast.step"
+  },
+  "music.in_your_room": {
+    "sounds": [
+      "mrbeast:music/in_your_room_cover"
+    ]
+  }
+}

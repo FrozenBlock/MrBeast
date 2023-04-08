@@ -12,7 +12,7 @@ import net.minecraft.world.item.SpawnEggItem
 
 object RegisterItems {
     val MRBEAST_SPAWN_EGG = register(
-        "beast_spawn_egg",
+        "mrbeast_spawn_egg",
         SpawnEggItem(RegisterEntities.MRBEAST, 0xB07C34, 0x5894AC, FabricItemSettings()),
         CreativeModeTabs.SPAWN_EGGS
     )

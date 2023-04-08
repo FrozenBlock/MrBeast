@@ -26,7 +26,7 @@ import net.minecraft.world.level.block.state.BlockState
 class MrBeast(entityType: EntityType<out MrBeast?>?, level: Level?) : PathfinderMob(entityType, level) {
     init {
         (this as EntitySpottingIconInterface).spottingIconManager.setIcon(
-            id("beast_icon.png"),
+            id("icon.png"),
             8f,
             12f,
             FrozenMain.id("default")
