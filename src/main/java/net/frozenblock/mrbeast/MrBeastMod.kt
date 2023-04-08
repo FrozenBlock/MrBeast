@@ -61,24 +61,7 @@ class MrBeastMod : FrozenMobCategoryEntrypoint(), ModInitializer {
                     )
                 )
             }
-        LootTableEvents.MODIFY.register(Modify { resourceManager: ResourceManager?, lootManager: LootTables?, id: ResourceLocation?, tableBuilder: LootTable.Builder, source: LootTableSource ->
-            if (source.isBuiltin) {
-                val pool = LootPool.lootPool()
-                    .add(LootItem.lootTableItem(RegisterItems.MRBEAST_SPAWN_EGG).setWeight(5))
-                    .apply(SetItemCountFunction.setCount(UniformGenerator.between(0f, 5f)))
-                tableBuilder.withPool(pool)
-            }
-        })
-        val spawnEggDeal = ItemsForEmeralds(RegisterItems.MRBEAST_SPAWN_EGG, 1, 1000, 1000)
-        for (profession in BuiltInRegistries.VILLAGER_PROFESSION) {
-            TradeOfferHelper.registerVillagerOffers(
-                profession,
-                1
-            ) { factories: MutableList<VillagerTrades.ItemListing?> -> factories.add(spawnEggDeal) }
-        }
-        TradeOfferHelper.registerWanderingTraderOffers(
-            1
-        ) { factories: MutableList<VillagerTrades.ItemListing?> -> factories.add(spawnEggDeal) }
+
         MrBeastSharedConstants.stopMeasuring(this)
     }
 
