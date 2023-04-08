@@ -24,6 +24,13 @@ import net.minecraft.world.level.ServerLevelAccessor
 import net.minecraft.world.level.block.state.BlockState
 
 class MrBeast(entityType: EntityType<out MrBeast?>?, level: Level?) : PathfinderMob(entityType, level) {
+    companion object {
+        private const val SOUND_VOLUME = 3.5f
+        fun addAttributes(): AttributeSupplier.Builder {
+            return createMobAttributes().add(Attributes.MOVEMENT_SPEED, 0.25)
+        }
+    }
+
     init {
         (this as EntitySpottingIconInterface).spottingIconManager.setIcon(
             id("icon.png"),
@@ -75,12 +82,5 @@ class MrBeast(entityType: EntityType<out MrBeast?>?, level: Level?) : Pathfinder
 
     public override fun playStepSound(pos: BlockPos, state: BlockState) {
         this.playSound(RegisterSounds.MRBEAST_STEP, 2.0f, 1.0f)
-    }
-
-    companion object {
-        private const val SOUND_VOLUME = 3.5f
-        fun addAttributes(): AttributeSupplier.Builder {
-            return createMobAttributes().add(Attributes.MOVEMENT_SPEED, 0.25)
-        }
     }
 }
