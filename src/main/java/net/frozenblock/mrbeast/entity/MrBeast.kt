@@ -23,7 +23,7 @@ import net.minecraft.world.level.Level
 import net.minecraft.world.level.ServerLevelAccessor
 import net.minecraft.world.level.block.state.BlockState
 
-class MrBeast(entityType: EntityType<out MrBeast?>?, level: Level?) : PathfinderMob(entityType, level) {
+class MrBeast(entityType: EntityType<out MrBeast>, level: Level) : PathfinderMob(entityType, level) {
     companion object {
         private const val SOUND_VOLUME = 3.5f
 

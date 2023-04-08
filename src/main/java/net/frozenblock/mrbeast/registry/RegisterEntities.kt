@@ -19,7 +19,7 @@ object RegisterEntities {
         "mrbeast",
         FabricEntityTypeBuilder.createMob<MrBeast>()
             .spawnGroup(FrozenMobCategories.getCategory(MrBeastSharedConstants.MOD_ID, "mrbeast"))
-            .entityFactory { entityType: EntityType<MrBeast>?, level: Level? ->
+            .entityFactory { entityType: EntityType<MrBeast>, level: Level ->
                 MrBeast(
                     entityType,
                     level
@@ -33,7 +33,7 @@ object RegisterEntities {
     fun init() {
         SpawnPlacements.register(
             MRBEAST, SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES
-        ) { entityType: EntityType<MrBeast?>, serverLevelAccessor: ServerLevelAccessor?, mobSpawnType: MobSpawnType?, blockPos: BlockPos?, randomSource: RandomSource? -> true }
+        ) { _: EntityType<MrBeast?>, _: ServerLevelAccessor?, _: MobSpawnType?, _: BlockPos?, _: RandomSource? -> true }
     }
 
     private fun <E : Entity?, T : EntityType<E>?> register(path: String, entityType: T): T {
