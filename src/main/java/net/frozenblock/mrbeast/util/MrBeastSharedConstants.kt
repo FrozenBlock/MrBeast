@@ -1,100 +1,97 @@
-package net.frozenblock.mrbeast.util;
+package net.frozenblock.mrbeast.util
 
-import java.util.HashMap;
-import java.util.Map;
-import net.fabricmc.loader.api.FabricLoader;
-import net.fabricmc.loader.api.ModContainer;
-import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.level.block.Block;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import net.fabricmc.loader.api.FabricLoader
+import net.minecraft.core.BlockPos
+import net.minecraft.resources.ResourceLocation
+import net.minecraft.world.entity.Entity
+import net.minecraft.world.level.block.Block
+import org.slf4j.LoggerFactory
 
-public final class MrBeastSharedConstants {
-	private MrBeastSharedConstants() {
-		throw new UnsupportedOperationException("MrBeastSharedConstants contains only static declarations.");
-	}
+object MrBeastSharedConstants {
 
-	public static final String MOD_ID = "mrbeast";
-	public static final String REGISTRY_ID = "mr";
+    const val MOD_ID = "mrbeast"
+    val LOGGER = LoggerFactory.getLogger(MOD_ID)
+    var DEV_LOGGING = false
 
-	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
-	public static boolean DEV_LOGGING = false;
-	/**
-	 * Used for features that may be unstable and crash in public builds.
-	 * <p>
-	 * It's smart to use this for at least registries.
-	 */
-	public static boolean UNSTABLE_LOGGING = FabricLoader.getInstance().isDevelopmentEnvironment();
-	public static final ModContainer MOD_CONTAINER = FabricLoader.getInstance().getModContainer(MOD_ID).orElseThrow();
-	public static boolean areConfigsInit = false;
+    /**
+     * Used for features that may be unstable and crash in public builds.
+     *
+     *
+     * It's smart to use this for at least registries.
+     */
+    var UNSTABLE_LOGGING = FabricLoader.getInstance().isDevelopmentEnvironment
+    val MOD_CONTAINER = FabricLoader.getInstance().getModContainer(MOD_ID).orElseThrow()
+    var areConfigsInit = false
 
-	/**
-	 * Used for datafixers.
-	 * <p>
-	 * Is not necessary for a normal mod, but can be useful in some cases.
-	 */
-	public static final int DATA_VERSION = 0;
+    /**
+     * Used for datafixers.
+     *
+     *
+     * Is not necessary for a normal mod, but can be useful in some cases.
+     */
+    const val DATA_VERSION = 0
 
-	// LOGGING
-	public static void log(String string, boolean shouldLog) {
-		if (shouldLog) {
-			LOGGER.info(string);
-		}
-	}
+    // LOGGING
+    fun log(string: String?, shouldLog: Boolean) {
+        if (shouldLog) {
+            LOGGER.info(string)
+        }
+    }
 
-	public static void log(Entity entity, String string, boolean shouldLog) {
-		if (shouldLog) {
-			LOGGER.info(entity.toString() + " : " + string + " : " + entity.position());
-		}
-	}
+    fun log(entity: Entity, string: String, shouldLog: Boolean) {
+        if (shouldLog) {
+            LOGGER.info(entity.toString() + " : " + string + " : " + entity.position())
+        }
+    }
 
-	public static void log(Block block, String string, boolean shouldLog) {
-		if (shouldLog) {
-			LOGGER.info(block.toString() + " : " + string + " : ");
-		}
-	}
+    fun log(block: Block, string: String, shouldLog: Boolean) {
+        if (shouldLog) {
+            LOGGER.info("$block : $string : ")
+        }
+    }
 
-	public static void log(Block block, BlockPos pos, String string, boolean shouldLog) {
-		if (shouldLog) {
-			LOGGER.info(block.toString() + " : " + string + " : " + pos);
-		}
-	}
+    fun log(block: Block, pos: BlockPos, string: String, shouldLog: Boolean) {
+        if (shouldLog) {
+            LOGGER.info("$block : $string : $pos")
+        }
+    }
 
-	public static void logMod(String string, boolean shouldLog) {
-		if (shouldLog) {
-			LOGGER.info(string + " " + MOD_ID);
-		}
-	}
+    fun logMod(string: String, shouldLog: Boolean) {
+        if (shouldLog) {
+            LOGGER.info(string + " " + MOD_ID)
+        }
+    }
 
-	// MEASURING
-	public static final Map<Object, Long> INSTANT_MAP = new HashMap<>();
+    // MEASURING
+    val INSTANT_MAP: MutableMap<Any, Long> = HashMap()
+    fun startMeasuring(`object`: Any) {
+        val started = System.nanoTime()
+        val name = `object`.javaClass.name
+        LOGGER.info("Started measuring {}", name.substring(name.lastIndexOf(".") + 1))
+        INSTANT_MAP[`object`] = started
+    }
 
-	public static void startMeasuring(Object object) {
-		long started = System.nanoTime();
-		String name = object.getClass().getName();
-		LOGGER.info("Started measuring {}", name.substring(name.lastIndexOf(".") + 1));
-		INSTANT_MAP.put(object, started);
-	}
+    fun stopMeasuring(`object`: Any) {
+        if (INSTANT_MAP.containsKey(`object`)) {
+            val name = `object`.javaClass.name
+            LOGGER.info(
+                "{} took {} nanoseconds",
+                name.substring(name.lastIndexOf(".") + 1),
+                System.nanoTime() - INSTANT_MAP[`object`]!!
+            )
+            INSTANT_MAP.remove(`object`)
+        }
+    }
 
-	public static void stopMeasuring(Object object) {
-		if (INSTANT_MAP.containsKey(object)) {
-			String name = object.getClass().getName();
-			LOGGER.info("{} took {} nanoseconds", name.substring(name.lastIndexOf(".") + 1), System.nanoTime() - INSTANT_MAP.get(object));
-			INSTANT_MAP.remove(object);
-		}
-	}
+    fun id(path: String?): ResourceLocation {
+        return ResourceLocation(MOD_ID, path)
+    }
 
-	public static ResourceLocation id(String path) {
-		return new ResourceLocation(REGISTRY_ID, path);
-	}
+    fun vanillaId(path: String?): ResourceLocation {
+        return ResourceLocation(ResourceLocation.DEFAULT_NAMESPACE, path)
+    }
 
-	public static ResourceLocation vanillaId(String path) {
-		return new ResourceLocation(ResourceLocation.DEFAULT_NAMESPACE, path);
-	}
-
-	public static String string(String path) {
-		return id(path).toString();
-	}
+    fun string(path: String?): String {
+        return id(path).toString()
+    }
 }

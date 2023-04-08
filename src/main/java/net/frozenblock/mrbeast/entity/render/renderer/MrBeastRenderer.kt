@@ -1,35 +1,40 @@
-package net.frozenblock.mrbeast.entity.render.renderer;
+package net.frozenblock.mrbeast.entity.render.renderer
 
-import net.frozenblock.mrbeast.entity.MrBeast;
-import net.frozenblock.mrbeast.entity.render.model.MrBeastModel;
-import net.frozenblock.mrbeast.util.MrBeastSharedConstants;
-import net.minecraft.client.model.HumanoidArmorModel;
-import net.minecraft.client.model.geom.EntityModelSet;
-import net.minecraft.client.model.geom.ModelLayerLocation;
-import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import net.minecraft.client.renderer.entity.HumanoidMobRenderer;
-import net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer;
-import net.minecraft.resources.ResourceLocation;
+import net.frozenblock.mrbeast.entity.MrBeast
+import net.frozenblock.mrbeast.entity.render.model.MrBeastModel
+import net.frozenblock.mrbeast.util.MrBeastSharedConstants.id
+import net.minecraft.client.model.HumanoidArmorModel
+import net.minecraft.client.model.geom.EntityModelSet
+import net.minecraft.client.model.geom.ModelLayerLocation
+import net.minecraft.client.renderer.entity.EntityRendererProvider
+import net.minecraft.client.renderer.entity.HumanoidMobRenderer
+import net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer
+import net.minecraft.resources.ResourceLocation
 
-public class MrBeastRenderer extends HumanoidMobRenderer<MrBeast, MrBeastModel<MrBeast>> {
-	public MrBeastRenderer(EntityRendererProvider.Context context, ModelLayerLocation mainLayer, ModelLayerLocation innerArmorLayer, ModelLayerLocation outerArmorLayer) {
-		super(context, createModel(context.getModelSet(), mainLayer), 0.5F);
-		this.addLayer(
-				new HumanoidArmorLayer<>(
-						this,
-						new HumanoidArmorModel<>(context.bakeLayer(innerArmorLayer)),
-						new HumanoidArmorModel<>(context.bakeLayer(outerArmorLayer)),
-						context.getModelManager()
-				)
-		);
-	}
+class MrBeastRenderer(
+    context: EntityRendererProvider.Context,
+    mainLayer: ModelLayerLocation,
+    innerArmorLayer: ModelLayerLocation,
+    outerArmorLayer: ModelLayerLocation
+) : HumanoidMobRenderer<MrBeast, MrBeastModel<MrBeast?>?>(context, createModel(context.modelSet, mainLayer), 0.5f) {
+    init {
+        addLayer(
+            HumanoidArmorLayer<MrBeast?, MrBeastModel<MrBeast?>?, HumanoidArmorModel<MrBeast?>>(
+                this,
+                HumanoidArmorModel(context.bakeLayer(innerArmorLayer)),
+                HumanoidArmorModel(context.bakeLayer(outerArmorLayer)),
+                context.modelManager
+            )
+        )
+    }
 
-	private static MrBeastModel<MrBeast> createModel(EntityModelSet modelLoader, ModelLayerLocation layer) {
-		return new MrBeastModel<>(modelLoader.bakeLayer(layer));
-	}
+    override fun getTextureLocation(entity: MrBeast): ResourceLocation {
+        return id("textures/entity/beast.png")
+    }
 
-	@Override
-	public ResourceLocation getTextureLocation(MrBeast entity) {
-		return MrBeastSharedConstants.id("textures/entity/beast.png");
-	}
+    companion object {
+        private fun createModel(modelLoader: EntityModelSet, layer: ModelLayerLocation): MrBeastModel<MrBeast?> {
+            return MrBeastModel(modelLoader.bakeLayer(layer))
+        }
+    }
 }
