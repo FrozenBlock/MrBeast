@@ -32,8 +32,10 @@ object RegisterEntities {
 
     fun init() {
         SpawnPlacements.register(
-            MRBEAST, SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES
-        ) { _: EntityType<MrBeast?>, _: ServerLevelAccessor?, _: MobSpawnType?, _: BlockPos?, _: RandomSource? -> true }
+            MRBEAST,
+            SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+            MrBeast::checkSpawnRules
+        )
     }
 
     private fun <E : Entity?, T : EntityType<E>?> register(path: String, entityType: T): T {

@@ -7,6 +7,8 @@ import net.frozenblock.mrbeast.util.MrBeastSharedConstants.id
 import net.minecraft.core.BlockPos
 import net.minecraft.nbt.CompoundTag
 import net.minecraft.sounds.SoundEvent
+import net.minecraft.tags.BlockTags
+import net.minecraft.util.RandomSource
 import net.minecraft.world.DifficultyInstance
 import net.minecraft.world.damagesource.DamageSource
 import net.minecraft.world.entity.EntityType
@@ -16,10 +18,13 @@ import net.minecraft.world.entity.SpawnGroupData
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier
 import net.minecraft.world.entity.ai.attributes.Attributes
 import net.minecraft.world.entity.ai.goal.*
+import net.minecraft.world.entity.animal.Animal
 import net.minecraft.world.entity.player.Player
 import net.minecraft.world.item.Items
 import net.minecraft.world.item.crafting.Ingredient
+import net.minecraft.world.level.BlockAndTintGetter
 import net.minecraft.world.level.Level
+import net.minecraft.world.level.LevelAccessor
 import net.minecraft.world.level.ServerLevelAccessor
 import net.minecraft.world.level.block.state.BlockState
 
@@ -30,6 +35,11 @@ class MrBeast(entityType: EntityType<out MrBeast>, level: Level) : PathfinderMob
         @JvmStatic
         fun addAttributes(): AttributeSupplier.Builder {
             return createMobAttributes().add(Attributes.MOVEMENT_SPEED, 0.25)
+        }
+
+        @JvmStatic
+        fun checkSpawnRules(mrbeast: EntityType<out MrBeast>, level: LevelAccessor, spawnType: MobSpawnType, pos: BlockPos, random: RandomSource): Boolean {
+            return level.getRawBrightness(pos, 0) > 8 && pos.y > 58
         }
     }
 
