@@ -18,7 +18,7 @@ object RegisterSounds {
     val MRBEAST_SPAWN = register("entity.mrbeast.spawn")
     @JvmField
     val MRBEAST_STEP = register("entity.mrbeast.step")
-    val IN_YOUR_ROOM: Holder<SoundEvent> = registerForHolder("music.in_your_room")
+
     private fun registerForHolder(string: String): Holder.Reference<SoundEvent> {
         return registerForHolder(MrBeastSharedConstants.id(string))
     }

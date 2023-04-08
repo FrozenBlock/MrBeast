@@ -43,10 +43,5 @@
       "mrbeast:entity/mrbeast/step7"
     ],
     "subtitle": "subtitles.entity.mrbeast.step"
-  },
-  "music.in_your_room": {
-    "sounds": [
-      "mrbeast:music/in_your_room_cover"
-    ]
   }
 }

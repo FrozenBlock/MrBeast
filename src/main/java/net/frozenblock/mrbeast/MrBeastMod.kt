@@ -33,19 +33,6 @@ class MrBeastMod : FrozenMobCategoryEntrypoint(), ModInitializer {
                     SpawnerData(RegisterEntities.MRBEAST, 1, 1, 1)
                 )
             }
-        BiomeModifications.create(MrBeastSharedConstants.id("mrbeast_music"))
-            .add(
-                ModificationPhase.POST_PROCESSING, BiomeSelectors.all()
-            ) { context: BiomeModificationContext ->
-                context.effects.setMusic(
-                    Music(
-                        RegisterSounds.IN_YOUR_ROOM,
-                        200,
-                        400,
-                        true
-                    )
-                )
-            }
 
         MrBeastSharedConstants.stopMeasuring(this)
     }
