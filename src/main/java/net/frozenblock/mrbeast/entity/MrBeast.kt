@@ -98,9 +98,9 @@ class MrBeast(entityType: EntityType<out MrBeast>, level: Level) : PathfinderMob
         this.playSound(RegisterSounds.MRBEAST_STEP, 2.0f, 1.0f)
     }
 
-    override fun playSound(sound: SoundEvent, volume: Float, pitch: Float) {
+    /*override fun playSound(sound: SoundEvent, volume: Float, pitch: Float) {
         if (!this.isSilent && this.level is ServerLevel) {
             FrozenSoundPackets.createMovingRestrictionSound(this.level, this, sound, this.soundSource, volume, pitch, FrozenMain.id("default"))
         }
-    }
+    }*/
 }
