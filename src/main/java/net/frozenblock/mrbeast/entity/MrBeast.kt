@@ -1,11 +1,13 @@
 package net.frozenblock.mrbeast.entity
 
 import net.frozenblock.lib.FrozenMain
+import net.frozenblock.lib.sound.api.FrozenSoundPackets
 import net.frozenblock.lib.spotting_icons.impl.EntitySpottingIconInterface
 import net.frozenblock.mrbeast.registry.RegisterSounds
 import net.frozenblock.mrbeast.util.MrBeastSharedConstants.id
 import net.minecraft.core.BlockPos
 import net.minecraft.nbt.CompoundTag
+import net.minecraft.server.level.ServerLevel
 import net.minecraft.sounds.SoundEvent
 import net.minecraft.tags.BlockTags
 import net.minecraft.util.RandomSource
@@ -80,19 +82,26 @@ class MrBeast(entityType: EntityType<out MrBeast>, level: Level) : PathfinderMob
         return SOUND_VOLUME
     }
 
-    public override fun getAmbientSound(): SoundEvent? {
+    public override fun getAmbientSound(): SoundEvent {
         return RegisterSounds.MRBEAST_AMBIENT
     }
 
-    public override fun getDeathSound(): SoundEvent? {
+    public override fun getDeathSound(): SoundEvent {
         return RegisterSounds.MRBEAST_DEATH
     }
 
-    public override fun getHurtSound(damageSource: DamageSource): SoundEvent? {
+    public override fun getHurtSound(damageSource: DamageSource): SoundEvent {
         return RegisterSounds.MRBEAST_HURT
     }
 
     public override fun playStepSound(pos: BlockPos, state: BlockState) {
         this.playSound(RegisterSounds.MRBEAST_STEP, 2.0f, 1.0f)
+    }
+
+    override fun playSound(sound: SoundEvent, volume: Float, pitch: Float) {
+        if (!this.isSilent && level is ServerLevel) {
+            val serverLevel = level as ServerLevel
+            FrozenSoundPackets.createMovingRestrictionSound(serverLevel, this, sound, this.soundSource, volume, pitch, FrozenMain.id("default"))
+        }
     }
 }
