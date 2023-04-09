@@ -99,9 +99,8 @@ class MrBeast(entityType: EntityType<out MrBeast>, level: Level) : PathfinderMob
     }
 
     override fun playSound(sound: SoundEvent, volume: Float, pitch: Float) {
-        if (!this.isSilent && level is ServerLevel) {
-            val serverLevel = level as ServerLevel
-            FrozenSoundPackets.createMovingRestrictionSound(serverLevel, this, sound, this.soundSource, volume, pitch, FrozenMain.id("default"))
+        if (!this.isSilent && this.level is ServerLevel) {
+            FrozenSoundPackets.createMovingRestrictionSound(this.level, this, sound, this.soundSource, volume, pitch, FrozenMain.id("default"))
         }
     }
 }
