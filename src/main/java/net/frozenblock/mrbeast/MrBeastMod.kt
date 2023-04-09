@@ -38,6 +38,6 @@ class MrBeastMod : FrozenMobCategoryEntrypoint(), ModInitializer {
     }
 
     override fun newCategories(context: ArrayList<FrozenMobCategory>) {
-        context.add(createCategory(MrBeastSharedConstants.id("mrbeast"), 15, true, false, 60))
+        context.add(createCategory(MrBeastSharedConstants.id("mrbeast"), 15, true, true, 60))
     }
 }
