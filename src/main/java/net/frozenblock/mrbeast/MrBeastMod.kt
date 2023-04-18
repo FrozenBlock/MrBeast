@@ -15,7 +15,7 @@ import net.frozenblock.mrbeast.registry.RegisterSounds
 import net.frozenblock.mrbeast.util.MrBeastSharedConstants
 import net.minecraft.world.level.biome.MobSpawnSettings.SpawnerData
 
-class MrBeastMod : FrozenMobCategoryEntrypoint(), ModInitializer {
+class MrBeastMod : FrozenMobCategoryEntrypoint, ModInitializer {
     override fun onInitialize() {
         MrBeastSharedConstants.startMeasuring(this)
 
@@ -37,6 +37,6 @@ class MrBeastMod : FrozenMobCategoryEntrypoint(), ModInitializer {
     }
 
     override fun newCategories(context: ArrayList<FrozenMobCategory>) {
-        context.add(createCategory(MrBeastSharedConstants.id("mrbeast"), 15, true, true, 60))
+        context.add(FrozenMobCategoryEntrypoint.createCategory(MrBeastSharedConstants.id("mrbeast"), 15, true, true, 60))
     }
 }
