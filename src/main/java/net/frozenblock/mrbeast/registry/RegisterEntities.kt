@@ -15,7 +15,7 @@ import net.minecraft.world.level.levelgen.Heightmap
 
 object RegisterEntities {
     @JvmField
-	val MRBEAST = register<MrBeast, EntityType<MrBeast>>(
+    val MRBEAST = register<MrBeast, EntityType<MrBeast>>(
         "mrbeast",
         FabricEntityTypeBuilder.createMob<MrBeast>()
             .spawnGroup(FrozenMobCategories.getCategory(MrBeastSharedConstants.MOD_ID, "mrbeast"))

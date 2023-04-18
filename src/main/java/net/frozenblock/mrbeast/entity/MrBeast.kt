@@ -40,7 +40,13 @@ class MrBeast(entityType: EntityType<out MrBeast>, level: Level) : PathfinderMob
         }
 
         @JvmStatic
-        fun checkSpawnRules(mrbeast: EntityType<out MrBeast>, level: LevelAccessor, spawnType: MobSpawnType, pos: BlockPos, random: RandomSource): Boolean {
+        fun checkSpawnRules(
+            mrbeast: EntityType<out MrBeast>,
+            level: LevelAccessor,
+            spawnType: MobSpawnType,
+            pos: BlockPos,
+            random: RandomSource
+        ): Boolean {
             return level.getRawBrightness(pos, 0) > 8 && pos.y > 58
         }
     }
@@ -97,10 +103,4 @@ class MrBeast(entityType: EntityType<out MrBeast>, level: Level) : PathfinderMob
     public override fun playStepSound(pos: BlockPos, state: BlockState) {
         this.playSound(RegisterSounds.MRBEAST_STEP, 2.0f, 1.0f)
     }
-
-    /*override fun playSound(sound: SoundEvent, volume: Float, pitch: Float) {
-        if (!this.isSilent && this.level is ServerLevel) {
-            FrozenSoundPackets.createMovingRestrictionSound(this.level, this, sound, this.soundSource, volume, pitch, FrozenMain.id("default"))
-        }
-    }*/
 }

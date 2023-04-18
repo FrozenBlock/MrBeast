@@ -10,12 +10,16 @@ import net.minecraft.sounds.SoundEvent
 object RegisterSounds {
     @JvmField
     val MRBEAST_AMBIENT = register("entity.mrbeast.ambient")
+
     @JvmField
     val MRBEAST_DEATH = register("entity.mrbeast.death")
+
     @JvmField
     val MRBEAST_HURT = register("entity.mrbeast.hurt")
+
     @JvmField
     val MRBEAST_SPAWN = register("entity.mrbeast.spawn")
+
     @JvmField
     val MRBEAST_STEP = register("entity.mrbeast.step")
 
