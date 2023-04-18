@@ -13,7 +13,6 @@ import net.frozenblock.mrbeast.registry.RegisterEntities
 import net.frozenblock.mrbeast.registry.RegisterItems
 import net.frozenblock.mrbeast.registry.RegisterSounds
 import net.frozenblock.mrbeast.util.MrBeastSharedConstants
-import net.minecraft.sounds.Music
 import net.minecraft.world.level.biome.MobSpawnSettings.SpawnerData
 
 class MrBeastMod : FrozenMobCategoryEntrypoint(), ModInitializer {

@@ -4,13 +4,13 @@ import net.fabricmc.fabric.api.`object`.builder.v1.entity.FabricEntityTypeBuilde
 import net.frozenblock.lib.mobcategory.api.FrozenMobCategories
 import net.frozenblock.mrbeast.entity.MrBeast
 import net.frozenblock.mrbeast.util.MrBeastSharedConstants
-import net.minecraft.core.BlockPos
 import net.minecraft.core.Registry
 import net.minecraft.core.registries.BuiltInRegistries
-import net.minecraft.util.RandomSource
-import net.minecraft.world.entity.*
+import net.minecraft.world.entity.Entity
+import net.minecraft.world.entity.EntityDimensions
+import net.minecraft.world.entity.EntityType
+import net.minecraft.world.entity.SpawnPlacements
 import net.minecraft.world.level.Level
-import net.minecraft.world.level.ServerLevelAccessor
 import net.minecraft.world.level.levelgen.Heightmap
 
 object RegisterEntities {
