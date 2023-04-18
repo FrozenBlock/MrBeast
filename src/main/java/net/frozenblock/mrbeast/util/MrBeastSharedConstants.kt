@@ -83,15 +83,15 @@ object MrBeastSharedConstants {
         }
     }
 
-    fun id(path: String?): ResourceLocation {
+    fun id(path: String): ResourceLocation {
         return ResourceLocation(MOD_ID, path)
     }
 
-    fun vanillaId(path: String?): ResourceLocation {
+    fun vanillaId(path: String): ResourceLocation {
         return ResourceLocation(ResourceLocation.DEFAULT_NAMESPACE, path)
     }
 
-    fun string(path: String?): String {
+    fun string(path: String): String {
         return id(path).toString()
     }
 }
