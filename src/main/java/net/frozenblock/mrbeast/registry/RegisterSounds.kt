@@ -27,7 +27,7 @@ object RegisterSounds {
         return registerForHolder(MrBeastSharedConstants.id(string))
     }
 
-    fun register(path: String?): SoundEvent {
+    fun register(path: String): SoundEvent {
         val id = MrBeastSharedConstants.id(path)
         return Registry.register(BuiltInRegistries.SOUND_EVENT, id, SoundEvent.createVariableRangeEvent(id))
     }
