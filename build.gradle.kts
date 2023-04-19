@@ -92,18 +92,6 @@ sourceSets {
 
 loom {
     runs {
-        register("datagen") {
-            client()
-            name("Data Generation")
-            vmArg("-Dfabric-api.datagen")
-            vmArg("-Dfabric-api.datagen.output-dir=${file("src/main/generated")}")
-            //vmArg("-Dfabric-api.datagen.strict-validation")
-            vmArg("-Dfabric-api.datagen.modid=$mod_id")
-
-            ideConfigGenerated(true)
-            runDir = "build/datagen"
-        }
-
         named("client") {
             ideConfigGenerated(true)
         }
@@ -334,7 +322,6 @@ tasks {
 
 val test: Task by tasks
 val runClient: Task by tasks
-val runDatagen: Task by tasks
 
 val remapJar: Task by tasks
 val sourcesJar: Task by tasks
@@ -372,11 +359,6 @@ fun getVersion(): String {
     }
 
     return version
-}
-
-if (!(release == true || System.getenv("GITHUB_ACTIONS") == "true")) {
-    test.dependsOn(runDatagen)
-    runClient.dependsOn(runDatagen)
 }
 
 val env = System.getenv()

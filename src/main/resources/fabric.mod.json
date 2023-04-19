@@ -31,12 +31,6 @@
         "value": "net.frozenblock.mrbeast.MrBeastModClient"
       }
     ],
-    "fabric-datagen": [
-      {
-        "adapter": "kotlin",
-        "value": "net.frozenblock.mrbeast.datagen.MrBeastDataGenerator"
-      }
-    ],
     "frozenlib:mob_categories": [
       {
         "adapter": "kotlin",
