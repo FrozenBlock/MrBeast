@@ -6,12 +6,12 @@
   "name": "MrBeast",
   "description": "MR BEASSSSSSSSSSSSTTTTTTTTTTTTT!!!!!!!!!!!!!!!!",
   "authors": [
-    "Facebook Modding Oasis (FrozenBlock)"
+    "FrozenBlock Modding Oasis"
   ],
   "contact": {
-    "homepage": "https://github.com/FrozenBlock/frozenblock-template-mod",
-    "sources": "https://github.com/FrozenBlock/frozenblock-template-mod",
-    "issues": "https://github.com/FrozenBlock/frozenblock-template-mod/issues"
+    "homepage": "https://github.com/FrozenBlock/MrBeast",
+    "sources": "https://github.com/FrozenBlock/MrBeast",
+    "issues": "https://github.com/FrozenBlock/MrBeast/issues"
   },
 
   "license": "LGPL-3.0",
