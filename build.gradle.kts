@@ -493,6 +493,7 @@ curseforge {
         addGameVersion(gameVersion)
         relations(closureOf<CurseRelation> {
             requiredDependency("fabric-api")
+            requiredDependency("fabric-language-kotlin")
             embeddedLibrary("frozenlib")
         })
         mainArtifact(file("build/libs/${tasks.remapJar.get().archiveBaseName.get()}-${version}.jar"), closureOf<CurseArtifact> {
@@ -517,6 +518,7 @@ modrinth {
     loaders.set(listOf("fabric", "quilt"))
     dependencies {
         required.project("fabric-api")
+        required.project("fabric-language-kotlin")
         embedded.project("frozenlib")
     }
 }
