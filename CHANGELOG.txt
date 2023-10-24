@@ -4,4 +4,4 @@ Make sure to clear after release
 
 Put changelog here:
 -----------------
-Initial release
+- Updated to 1.20.1

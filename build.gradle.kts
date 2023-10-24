@@ -25,8 +25,7 @@ buildscript {
 }
 
 plugins {
-    id("fabric-loom") version("1.1.+")
-    id("io.github.juuxel.loom-quiltflower") version("+")
+    id("fabric-loom") version("+")
     id("org.quiltmc.gradle.licenser") version("+")
     id("org.ajoberstar.grgit") version("+")
     id("com.modrinth.minotaur") version("+")
@@ -36,7 +35,7 @@ plugins {
     idea
     `java-library`
     java
-    kotlin("jvm") version("1.8.20")
+    kotlin("jvm") version("1.9.10")
 }
 
 val minecraft_version: String by project
@@ -53,6 +52,7 @@ val archives_base_name: String by project
 val fabric_version: String by project
 val fabric_kotlin_version: String by project
 val frozenlib_version: String by project
+val mixin_extras_version: String by project
 
 val modmenu_version: String by project
 val cloth_config_version: String by project
@@ -182,7 +182,7 @@ dependencies {
     mappings(loom.layered {
         // please annoy treetrain if this doesnt work
         mappings("org.quiltmc:quilt-mappings:${minecraft_version}+build.${quilt_mappings}:intermediary-v2")
-        parchment("org.parchmentmc.data:parchment-1.19.3:${parchment_mappings}@zip")
+        parchment("org.parchmentmc.data:parchment-${parchment_mappings}@zip")
         officialMojangMappings {
             nameSyntheticMembers = false
         }
@@ -202,6 +202,9 @@ dependencies {
     } else {
         modImplementation("maven.modrinth:frozenlib:${frozenlib_version}")?.let { include(it) }
     }
+
+    // MixinExtras
+    implementation("com.github.llamalad7.mixinextras:mixinextras-fabric:$mixin_extras_version")?.let { annotationProcessor(it); }
 
     // Mod Menu
     modCompileOnly("com.terraformersmc:modmenu:${modmenu_version}")
@@ -249,10 +252,6 @@ dependencies {
             modRuntimeOnly("me.flashyreese.mods:sodium-extra-fabric:${sodium_extra_version}")
             modRuntimeOnly("io.github.douira:glsl-transformer:0.27.0")
         }*/
-}
-
-quiltflower {
-    quiltflowerVersion.set("1.8.0")
 }
 
 tasks {
