@@ -39,7 +39,6 @@
     ]
   },
   "mixins": [
-    "mrbeast.mixins.json"
   ],
   "accessWidener": "mrbeast.accesswidener",
 
