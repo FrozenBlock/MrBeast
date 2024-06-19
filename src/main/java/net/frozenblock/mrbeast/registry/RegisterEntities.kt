@@ -9,6 +9,7 @@ import net.minecraft.core.registries.BuiltInRegistries
 import net.minecraft.world.entity.Entity
 import net.minecraft.world.entity.EntityDimensions
 import net.minecraft.world.entity.EntityType
+import net.minecraft.world.entity.SpawnPlacementTypes
 import net.minecraft.world.entity.SpawnPlacements
 import net.minecraft.world.level.Level
 import net.minecraft.world.level.levelgen.Heightmap
@@ -33,12 +34,12 @@ object RegisterEntities {
     fun init() {
         SpawnPlacements.register(
             MRBEAST,
-            SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+            SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
             MrBeast::checkSpawnRules
         )
     }
 
-    private fun <E : Entity?, T : EntityType<E>?> register(path: String, entityType: T): T {
+    private fun <E : Entity?, T : EntityType<E>?> register(path: String, entityType: T & Any): T {
         return Registry.register(
             BuiltInRegistries.ENTITY_TYPE,
             MrBeastSharedConstants.id(path),

@@ -1,6 +1,5 @@
 package net.frozenblock.mrbeast.registry
 
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings
 import net.frozenblock.lib.item.api.FrozenCreativeTabs
 import net.frozenblock.mrbeast.util.MrBeastSharedConstants
 import net.minecraft.core.Registry
@@ -14,7 +13,7 @@ import net.minecraft.world.item.SpawnEggItem
 object RegisterItems {
     val MRBEAST_SPAWN_EGG = register(
         "mrbeast_spawn_egg",
-        SpawnEggItem(RegisterEntities.MRBEAST, 0xB07C34, 0x5894AC, FabricItemSettings()),
+        SpawnEggItem(RegisterEntities.MRBEAST, 0xB07C34, 0x5894AC, Item.Properties()),
         CreativeModeTabs.SPAWN_EGGS
     )
 

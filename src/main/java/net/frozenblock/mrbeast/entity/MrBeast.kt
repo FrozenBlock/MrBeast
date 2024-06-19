@@ -69,11 +69,10 @@ class MrBeast(entityType: EntityType<out MrBeast>, level: Level) : PathfinderMob
         level: ServerLevelAccessor,
         difficulty: DifficultyInstance,
         spawnType: MobSpawnType,
-        spawnData: SpawnGroupData?,
-        nbt: CompoundTag?
+        spawnData: SpawnGroupData?
     ): SpawnGroupData? {
         this.playSound(RegisterSounds.MRBEAST_SPAWN, 10.0f, 1.0f)
-        return super.finalizeSpawn(level, difficulty, spawnType, spawnData, nbt)
+        return super.finalizeSpawn(level, difficulty, spawnType, spawnData)
     }
 
     override fun removeWhenFarAway(distanceToClosestPlayer: Double): Boolean {
