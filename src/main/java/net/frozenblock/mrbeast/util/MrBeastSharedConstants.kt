@@ -84,11 +84,11 @@ object MrBeastSharedConstants {
     }
 
     fun id(path: String): ResourceLocation {
-        return ResourceLocation(MOD_ID, path)
+        return ResourceLocation.fromNamespaceAndPath(MOD_ID, path)
     }
 
     fun vanillaId(path: String): ResourceLocation {
-        return ResourceLocation(ResourceLocation.DEFAULT_NAMESPACE, path)
+        return ResourceLocation.withDefaultNamespace(path)
     }
 
     fun string(path: String): String {
