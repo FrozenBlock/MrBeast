@@ -436,9 +436,7 @@ extra {
 }
 
 val modrinth_id: String by extra
-val curseforge_id: String by extra
 val release_type: String by extra
-val curseforge_minecraft_version: String by extra
 val changelog_file: String by extra
 
 val modrinth_version = makeModrinthVersion(mod_version)
@@ -476,32 +474,6 @@ fun getBranch(): String {
     return branch.substring(branch.lastIndexOf("/") + 1)
 }
 
-curseforge {
-    val token = System.getenv("CURSEFORGE_TOKEN")
-    apiKey = if (token == null || token.isEmpty()) "unset" else token
-    val gameVersion = if (curseforge_minecraft_version != "null") curseforge_minecraft_version else minecraft_version
-    project(closureOf<CurseProject> {
-        id = curseforge_id
-        changelog = changelog_text
-        releaseType = release_type
-        addGameVersion("Fabric")
-        addGameVersion("Quilt")
-        addGameVersion(gameVersion)
-        relations(closureOf<CurseRelation> {
-            requiredDependency("fabric-api")
-            requiredDependency("fabric-language-kotlin")
-            embeddedLibrary("frozenlib")
-        })
-        mainArtifact(file("build/libs/${tasks.remapJar.get().archiveBaseName.get()}-${version}.jar"), closureOf<CurseArtifact> {
-            displayName = display_name
-        })
-        afterEvaluate {
-            uploadTask.dependsOn(remapJar)
-        }
-    })
-    curseGradleOptions.forgeGradleIntegration = false
-}
-
 modrinth {
     token.set(System.getenv("MODRINTH_TOKEN"))
     projectId.set(modrinth_id)
@@ -511,7 +483,7 @@ modrinth {
     changelog.set(changelog_text)
     uploadFile.set(file("build/libs/${tasks.remapJar.get().archiveBaseName.get()}-${version}.jar"))
     gameVersions.set(listOf(minecraft_version))
-    loaders.set(listOf("fabric", "quilt"))
+    loaders.set(listOf("fabric"))
     dependencies {
         required.project("fabric-api")
         required.project("fabric-language-kotlin")
@@ -549,6 +521,5 @@ val github by tasks.register("github") {
 val publishMod by tasks.register("publishMod") {
     dependsOn(tasks.publish)
     dependsOn(github)
-    dependsOn(tasks.curseforge)
     dependsOn(tasks.modrinth)
 }
