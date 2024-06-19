@@ -1,6 +1,7 @@
 package net.frozenblock.mrbeast.entity
 
 import net.frozenblock.lib.FrozenMain
+import net.frozenblock.lib.FrozenSharedConstants
 import net.frozenblock.lib.spotting_icons.impl.EntitySpottingIconInterface
 import net.frozenblock.mrbeast.registry.RegisterSounds
 import net.frozenblock.mrbeast.util.MrBeastSharedConstants.id
@@ -51,7 +52,7 @@ class MrBeast(entityType: EntityType<out MrBeast>, level: Level) : PathfinderMob
             id("icon.png"),
             8f,
             12f,
-            FrozenMain.id("default")
+            FrozenSharedConstants.id("default")
         )
     }
 
