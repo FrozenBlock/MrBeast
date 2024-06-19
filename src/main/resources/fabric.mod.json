@@ -43,15 +43,12 @@
   "accessWidener": "mrbeast.accesswidener",
 
   "depends": {
-    "frozenlib": ">=1.2.0-",
+    "frozenlib": ">=1.7.3-",
     "fabric-language-kotlin": "${fabric_kotlin_version}",
-    "fabricloader": ">=0.14.18",
-    "fabric-api": ">=0.76.0",
+    "fabricloader": ">=0.15.11",
+    "fabric-api": ">=0.91.6",
     "minecraft": ">=${minecraft_version}",
     "java": ">=17"
-  },
-  "breaks": {
-    "quilted_fabric_api": "4.0.0-beta.8"
   },
   "suggests": {
     "cloth-config": "*"
