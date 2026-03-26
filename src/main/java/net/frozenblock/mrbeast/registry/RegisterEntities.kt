@@ -1,11 +1,13 @@
 package net.frozenblock.mrbeast.registry
 
 import net.fabricmc.fabric.api.`object`.builder.v1.entity.FabricEntityTypeBuilder
-import net.frozenblock.lib.mobcategory.api.FrozenMobCategories
+import net.frozenblock.lib.entity.api.category.FrozenMobCategories
 import net.frozenblock.mrbeast.entity.MrBeast
 import net.frozenblock.mrbeast.util.MrBeastSharedConstants
 import net.minecraft.core.Registry
 import net.minecraft.core.registries.BuiltInRegistries
+import net.minecraft.core.registries.Registries
+import net.minecraft.resources.ResourceKey
 import net.minecraft.world.entity.Entity
 import net.minecraft.world.entity.EntityDimensions
 import net.minecraft.world.entity.EntityType
@@ -19,7 +21,7 @@ object RegisterEntities {
     val MRBEAST = register<MrBeast, EntityType<MrBeast>>(
         "mrbeast",
         FabricEntityTypeBuilder.createMob<MrBeast>()
-            .spawnGroup(FrozenMobCategories.getCategory(MrBeastSharedConstants.MOD_ID, "mrbeast"))
+            .mobCategory(FrozenMobCategories.getCategory(MrBeastSharedConstants.MOD_ID, "mrbeast"))
             .entityFactory { entityType: EntityType<MrBeast>, level: Level ->
                 MrBeast(
                     entityType,
@@ -28,7 +30,7 @@ object RegisterEntities {
             }
             .defaultAttributes { MrBeast.addAttributes() }
             .dimensions(EntityDimensions.scalable(0.6f, 1.8f))
-            .build()
+            .build(ResourceKey.create(Registries.ENTITY_TYPE, MrBeastSharedConstants.id("mrbeast")))
     )
 
     fun init() {

@@ -5,9 +5,9 @@ import net.fabricmc.fabric.api.biome.v1.BiomeModificationContext
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors
 import net.fabricmc.fabric.api.biome.v1.ModificationPhase
-import net.frozenblock.lib.mobcategory.api.FrozenMobCategories
-import net.frozenblock.lib.mobcategory.api.entrypoint.FrozenMobCategoryEntrypoint
-import net.frozenblock.lib.mobcategory.impl.FrozenMobCategory
+import net.frozenblock.lib.entity.api.category.FrozenMobCategories
+import net.frozenblock.lib.entity.api.category.entrypoint.FrozenMobCategoryEntrypoint
+import net.frozenblock.lib.entity.impl.category.FrozenMobCategory
 import net.frozenblock.mrbeast.mod_compat.MrBeastModIntegrations
 import net.frozenblock.mrbeast.registry.RegisterEntities
 import net.frozenblock.mrbeast.registry.RegisterItems
@@ -27,9 +27,10 @@ class MrBeastMod : FrozenMobCategoryEntrypoint, ModInitializer {
             .add(
                 ModificationPhase.ADDITIONS, BiomeSelectors.all()
             ) { context: BiomeModificationContext ->
-                context.spawnSettings.addSpawn(
+                context.mobSpawnSettings.addSpawn(
                     FrozenMobCategories.getCategory(MrBeastSharedConstants.MOD_ID, "mrbeast"),
-                    SpawnerData(RegisterEntities.MRBEAST, 1, 1, 1)
+                    SpawnerData(RegisterEntities.MRBEAST, 1, 1),
+                    1
                 )
             }
 

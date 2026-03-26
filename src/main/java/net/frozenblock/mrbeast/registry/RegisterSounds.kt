@@ -4,7 +4,7 @@ import net.frozenblock.mrbeast.util.MrBeastSharedConstants
 import net.minecraft.core.Holder
 import net.minecraft.core.Registry
 import net.minecraft.core.registries.BuiltInRegistries
-import net.minecraft.resources.ResourceLocation
+import net.minecraft.resources.Identifier
 import net.minecraft.sounds.SoundEvent
 
 object RegisterSounds {
@@ -33,8 +33,8 @@ object RegisterSounds {
     }
 
     private fun registerForHolder(
-        resourceLocation: ResourceLocation,
-        resourceLocation2: ResourceLocation = resourceLocation
+        resourceLocation: Identifier,
+        resourceLocation2: Identifier = resourceLocation
     ): Holder.Reference<SoundEvent> {
         return Registry.registerForHolder(
             BuiltInRegistries.SOUND_EVENT,

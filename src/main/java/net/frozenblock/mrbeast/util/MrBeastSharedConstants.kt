@@ -2,7 +2,7 @@ package net.frozenblock.mrbeast.util
 
 import net.fabricmc.loader.api.FabricLoader
 import net.minecraft.core.BlockPos
-import net.minecraft.resources.ResourceLocation
+import net.minecraft.resources.Identifier
 import net.minecraft.world.entity.Entity
 import net.minecraft.world.level.block.Block
 import org.slf4j.LoggerFactory
@@ -83,12 +83,12 @@ object MrBeastSharedConstants {
         }
     }
 
-    fun id(path: String): ResourceLocation {
-        return ResourceLocation.fromNamespaceAndPath(MOD_ID, path)
+    fun id(path: String): Identifier {
+        return Identifier.fromNamespaceAndPath(MOD_ID, path)
     }
 
-    fun vanillaId(path: String): ResourceLocation {
-        return ResourceLocation.withDefaultNamespace(path)
+    fun vanillaId(path: String): Identifier {
+        return Identifier.withDefaultNamespace(path)
     }
 
     fun string(path: String): String {

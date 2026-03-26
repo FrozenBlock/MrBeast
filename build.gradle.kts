@@ -6,6 +6,7 @@ import com.modrinth.minotaur.ModrinthExtension
 import groovy.xml.XmlSlurper
 import org.ajoberstar.grgit.Grgit
 import org.codehaus.groovy.runtime.ResourceGroovyMethods
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import java.io.FileInputStream
 import java.nio.file.Files
@@ -25,7 +26,7 @@ buildscript {
 }
 
 plugins {
-    id("fabric-loom") version("1.6.+")
+    id("net.fabricmc.fabric-loom") version("1.15-SNAPSHOT")
     id("org.quiltmc.gradle.licenser") version("+")
     id("org.ajoberstar.grgit") version("+")
     id("com.modrinth.minotaur") version("+")
@@ -35,12 +36,10 @@ plugins {
     idea
     `java-library`
     java
-    kotlin("jvm") version("2.0.0")
+    kotlin("jvm") version("2.3.10")
 }
 
 val minecraft_version: String by project
-val quilt_mappings: String by project
-val parchment_mappings: String by project
 val loader_version: String by project
 
 val mod_id: String by project
@@ -101,19 +100,14 @@ loom {
     }
 }
 
-val includeModImplementation by configurations.creating
 val includeImplementation by configurations.creating
 
 configurations {
     include {
         extendsFrom(includeImplementation)
-        extendsFrom(includeModImplementation)
     }
     implementation {
         extendsFrom(includeImplementation)
-    }
-    modImplementation {
-        extendsFrom(includeModImplementation)
     }
 }
 
@@ -153,18 +147,8 @@ repositories {
         name = "Siphalor's Maven"
         url = uri("https://maven.siphalor.de")
     }*/
-    maven {
-        url = uri("https://maven.flashyreese.me/releases")
-    }
-    maven {
-        url = uri("https://maven.flashyreese.me/snapshots")
-    }
-    maven {
-        url = uri("https://maven.minecraftforge.net/")
-    }
-    maven {
-        url = uri("https://maven.parchmentmc.org")
-    }
+    maven("https://maven.minecraftforge.net/")
+    maven("https://maven.parchmentmc.org")
     maven {
         name = "Quilt"
         url = uri("https://maven.quiltmc.org/repository/release")
@@ -179,35 +163,23 @@ repositories {
 dependencies {
     // To change the versions see the gradle.properties file
     minecraft("com.mojang:minecraft:${minecraft_version}")
-    mappings(loom.layered {
-        // please annoy treetrain if this doesnt work
-        mappings("org.quiltmc:quilt-mappings:${quilt_mappings}:intermediary-v2")
-        parchment("org.parchmentmc.data:parchment-${parchment_mappings}@zip")
-        officialMojangMappings {
-            nameSyntheticMembers = false
-        }
-    })
-    modImplementation("net.fabricmc:fabric-loader:${loader_version}")
+
+    implementation("net.fabricmc:fabric-loader:${loader_version}")
 
     // Fabric API. This is technically optional, but you probably want it anyway.
-    modImplementation("net.fabricmc.fabric-api:fabric-api:${fabric_version}")
+    implementation("net.fabricmc.fabric-api:fabric-api:${fabric_version}")
 
     // Fabric Language Kotlin. Required for Kotlin support.
-    modImplementation("net.fabricmc:fabric-language-kotlin:${fabric_kotlin_version}")
+    implementation("net.fabricmc:fabric-language-kotlin:${fabric_kotlin_version}")
 
     // FrozenLib
-    println("Using local FrozenLib: $local_frozenlib")
-    if (local_frozenlib) {
-        implementation(project(path = ":FrozenLib", configuration = "dev"))?.let { include(it) }
-    } else {
-        modImplementation("maven.modrinth:frozenlib:${frozenlib_version}")?.let { include(it) }
-    }
+    implementation("maven.modrinth:frozenlib:${frozenlib_version}")?.let { include(it) }
 
     // Mod Menu
-    modCompileOnly("com.terraformersmc:modmenu:${modmenu_version}")
+    compileOnly("com.terraformersmc:modmenu:${modmenu_version}")
 
     // Cloth Config
-    modCompileOnly("me.shedaniel.cloth:cloth-config-fabric:${cloth_config_version}") {
+    implementation("me.shedaniel.cloth:cloth-config-fabric:${cloth_config_version}") {
         exclude(group = "net.fabricmc.fabric-api")
         exclude(group = "com.terraformersmc")
     }
@@ -297,16 +269,15 @@ tasks {
 
     withType(JavaCompile::class) {
         options.encoding = "UTF-8"
-        // Minecraft 1.20.5 (24w14a) upwards uses Java 21.
-        options.release.set(21)
+        // Minecraft 26.1 (26.1-snapshot-1) upwards uses Java 25.
+        options.release.set(25)
         options.isFork = true
         options.isIncremental = true
     }
 
     withType(KotlinCompile::class) {
-        kotlinOptions {
-            // Minecraft 1.20.5 (24w14a) upwards uses Java 21.
-            jvmTarget = "21"
+        compilerOptions {
+            jvmTarget = JvmTarget.JVM_25
         }
     }
 
@@ -319,13 +290,13 @@ tasks {
 val test: Task by tasks
 val runClient: Task by tasks
 
-val remapJar: Task by tasks
-val sourcesJar: Task by tasks
-val javadocJar: Task by tasks
+val jar: Jar by tasks
+val sourcesJar: Jar by tasks
+val javadocJar: Jar by tasks
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_21
-    targetCompatibility = JavaVersion.VERSION_21
+    sourceCompatibility = JavaVersion.VERSION_25
+    targetCompatibility = JavaVersion.VERSION_25
 
     // Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
     // if it is present.
@@ -481,7 +452,7 @@ modrinth {
     versionName.set(display_name)
     versionType.set(release_type)
     changelog.set(changelog_text)
-    uploadFile.set(file("build/libs/${tasks.remapJar.get().archiveBaseName.get()}-${version}.jar"))
+    uploadFile.set(file("build/libs/${tasks.jar.get().archiveBaseName.get()}-${version}.jar"))
     gameVersions.set(listOf(minecraft_version))
     loaders.set(listOf("fabric"))
     dependencies {
@@ -493,7 +464,7 @@ modrinth {
 
 
 val github by tasks.register("github") {
-    dependsOn(remapJar)
+    dependsOn(jar, sourcesJar, javadocJar)
     val env = System.getenv()
     val token = env["GITHUB_TOKEN"]
     val repoVar = env["GITHUB_REPOSITORY"]
@@ -512,8 +483,8 @@ val github by tasks.register("github") {
         releaseBuilder.prerelease(release_type != "release")
 
         val ghRelease = releaseBuilder.create()
-        ghRelease.uploadAsset(tasks.remapJar.get().archiveFile.get().asFile, "application/java-archive")
-        ghRelease.uploadAsset(tasks.remapSourcesJar.get().archiveFile.get().asFile, "application/java-archive")
+        ghRelease.uploadAsset(jar.archiveFile.get().asFile, "application/java-archive")
+        ghRelease.uploadAsset(sourcesJar.archiveFile.get().asFile, "application/java-archive")
         ghRelease.uploadAsset(javadocJar.outputs.files.singleFile, "application/java-archive")
     }
 }

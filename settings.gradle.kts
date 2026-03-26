@@ -27,46 +27,46 @@ pluginManagement {
 
 rootProject.name = "MrBeast"
 
-localRepository("FrozenLib", "maven.modrinth:frozenlib", true)
+localRepository("cloth-config", "me.shedaniel.cloth:cloth-config-fabric", false, false)
+localRepository("FrozenLib", "maven.modrinth:frozenlib", true, false)
 
-fun localRepository(repo: String, dependencySub: String, kotlin: Boolean) {
-	println("Attempting to include local repo $repo")
+fun localRepository(repo: String, dependencySub: String, kotlin: Boolean, enabled: Boolean) {
+    if (!enabled) return
+    println("Attempting to include local repo $repo")
 
-	val allowLocalRepoUse = false
-	val allowLocalRepoInConsoleMode = true
+    val github = System.getenv("GITHUB_ACTIONS") == "true"
 
-	val androidInjectedInvokedFromIde by extra("android.injected.invoked.from.ide")
-	val xpcServiceName by extra("XPC_SERVICE_NAME")
-	val ideaInitialDirectory by extra("IDEA_INITIAL_DIRECTORY")
+    val allowLocalRepoUse = true
+    val allowLocalRepoInConsoleMode = true
 
-	val isIDE = androidInjectedInvokedFromIde != "" || (System.getenv(xpcServiceName) ?: "").contains("intellij") || (System.getenv(xpcServiceName) ?: "").contains(".idea") || System.getenv(ideaInitialDirectory) != null
-	val github = System.getenv("GITHUB_ACTIONS") == "true"
+    val androidInjectedInvokedFromIde by extra("android.injected.invoked.from.ide")
+    val xpcServiceName by extra("XPC_SERVICE_NAME")
+    val ideaInitialDirectory by extra("IDEA_INITIAL_DIRECTORY")
 
-	var path = "../$repo"
+    val isIDE = androidInjectedInvokedFromIde != "" || (System.getenv(xpcServiceName) ?: "").contains("intellij") || (System.getenv(xpcServiceName) ?: "").contains(".idea") || System.getenv(ideaInitialDirectory) != null
+
+    var path = "../$repo"
     var file = File(path)
 
     val prefixedRepoName = ":$repo"
 
     if (allowLocalRepoUse && (isIDE || allowLocalRepoInConsoleMode)) {
-		if (github) {
+        if (github) {
             path = repo
-			file = File(path)
-			println("Running on GitHub")
-		}
+            file = File(path)
+            println("Running on GitHub")
+        }
         if (file.exists()) {
-			/*includeBuild(path) {
-				dependencySubstitution {
-					if (dependencySub != "") {
-						substitute(module(dependencySub)).using(project(":"))
-					}
-				}
-			}*/
-            include(prefixedRepoName)
-            project(prefixedRepoName).projectDir = file
-            project(prefixedRepoName).buildFileName = "./build.gradle" + if (kotlin) ".kts" else ""
-			println("Included local repo $repo")
+            includeBuild(path) {
+                dependencySubstitution {
+                    if (dependencySub != "") {
+                        substitute(module(dependencySub)).using(project(":"))
+                    }
+                }
+            }
+            println("Included local repo $repo")
         } else {
-			println("Local repo $repo not found")
-		}
-	}
+            println("Local repo $repo not found")
+        }
+    }
 }

@@ -1,13 +1,14 @@
 package net.frozenblock.mrbeast.entity.render.model
 
 import net.frozenblock.mrbeast.entity.MrBeast
+import net.frozenblock.mrbeast.entity.render.renderer.MrBeastRenderState
 import net.minecraft.client.model.HumanoidModel
 import net.minecraft.client.model.geom.LayerDefinitions
 import net.minecraft.client.model.geom.ModelPart
 import net.minecraft.client.model.geom.builders.CubeDeformation
 import net.minecraft.client.model.geom.builders.LayerDefinition
 
-class MrBeastModel<T : MrBeast?>(root: ModelPart?) : HumanoidModel<T>(root!!) {
+class MrBeastModel(root: ModelPart?) : HumanoidModel<MrBeastRenderState>(root!!) {
     companion object {
         fun createBodyLayer(): LayerDefinition {
             return LayerDefinition.create(createMesh(CubeDeformation.NONE, 0.0f), 64, 64)

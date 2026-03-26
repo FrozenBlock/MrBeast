@@ -1,7 +1,6 @@
 package net.frozenblock.mrbeast.entity
 
-import net.frozenblock.lib.FrozenMain
-import net.frozenblock.lib.FrozenSharedConstants
+import net.frozenblock.lib.FrozenLibConstants
 import net.frozenblock.lib.spotting_icons.impl.EntitySpottingIconInterface
 import net.frozenblock.mrbeast.registry.RegisterSounds
 import net.frozenblock.mrbeast.util.MrBeastSharedConstants.id
@@ -11,8 +10,8 @@ import net.minecraft.sounds.SoundEvent
 import net.minecraft.util.RandomSource
 import net.minecraft.world.DifficultyInstance
 import net.minecraft.world.damagesource.DamageSource
+import net.minecraft.world.entity.EntitySpawnReason
 import net.minecraft.world.entity.EntityType
-import net.minecraft.world.entity.MobSpawnType
 import net.minecraft.world.entity.PathfinderMob
 import net.minecraft.world.entity.SpawnGroupData
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier
@@ -32,14 +31,14 @@ class MrBeast(entityType: EntityType<out MrBeast>, level: Level) : PathfinderMob
 
         @JvmStatic
         fun addAttributes(): AttributeSupplier.Builder {
-            return createMobAttributes().add(Attributes.MOVEMENT_SPEED, 0.25)
+            return createMobAttributes().add(Attributes.TEMPT_RANGE, 10.0).add(Attributes.MOVEMENT_SPEED, 0.25)
         }
 
         @JvmStatic
         fun checkSpawnRules(
             mrbeast: EntityType<out MrBeast>,
             level: LevelAccessor,
-            spawnType: MobSpawnType,
+            spawnType: EntitySpawnReason,
             pos: BlockPos,
             random: RandomSource
         ): Boolean {
@@ -48,11 +47,11 @@ class MrBeast(entityType: EntityType<out MrBeast>, level: Level) : PathfinderMob
     }
 
     init {
-        (this as EntitySpottingIconInterface).spottingIconManager.setIcon(
+        (this as EntitySpottingIconInterface).`frozenLib$getSpottingIconManager`().setIcon(
             id("icon.png"),
             8f,
             12f,
-            FrozenSharedConstants.id("default")
+            FrozenLibConstants.id("default")
         )
     }
 
@@ -68,7 +67,7 @@ class MrBeast(entityType: EntityType<out MrBeast>, level: Level) : PathfinderMob
     override fun finalizeSpawn(
         level: ServerLevelAccessor,
         difficulty: DifficultyInstance,
-        spawnType: MobSpawnType,
+        spawnType: EntitySpawnReason,
         spawnData: SpawnGroupData?
     ): SpawnGroupData? {
         this.playSound(RegisterSounds.MRBEAST_SPAWN, 10.0f, 1.0f)
